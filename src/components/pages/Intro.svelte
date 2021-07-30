@@ -1,20 +1,16 @@
 <script lang="ts">
+  import supabase from '../../lib/db';
   import {_} from 'svelte-i18n';
   import Button from '../uis/Button.svelte';
-  import {userStore} from '../../stores/userStore';
 
-  const {fullname, setName} = userStore;
+  const signOut = () => supabase.auth.signOut();
 
-  function handleClick() {
+  function toggleTheme() {
     window.document.body.classList.toggle('dark-mode');
-  }
-
-  function getUser() {
-    setName('Hyo', 'Jang');
   }
 </script>
 
 <p>{$_('intro.title')}</p>
-<Button on:click={handleClick}>Change Theme</Button>
-<Button on:click={getUser}>Get User</Button>
-<p>{$fullname}</p>
+<Button on:click={signOut}>Sign Out</Button>
+<Button on:click={toggleTheme}>Toggle Theme</Button>
+<!-- <p>{$fullname}</p> -->
