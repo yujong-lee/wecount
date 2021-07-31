@@ -6,10 +6,10 @@
   let email: string;
   let password: string;
 
-  const handleLogin = async () => {
+  const handleAuthException = async (callback: () => Promise<Error | null>) => {
     try {
       loading = true;
-      const {error} = await supabase.auth.signIn({email, password});
+      const error = await callback();
 
       if (error) throw error;
     } catch (error) {
@@ -19,18 +19,20 @@
     }
   };
 
+  const handleLogin = async () => {
+    await handleAuthException(async () => {
+      const {error} = await supabase.auth.signIn({email, password});
+
+      return error;
+    });
+  };
+
   const handleSignUp = async () => {
-    try {
-      loading = true;
-      loading = true;
+    await handleAuthException(async () => {
       const {error} = await supabase.auth.signUp({email, password});
 
-      if (error) throw error;
-    } catch (error) {
-      alert(error.error_description || error.message);
-    } finally {
-      loading = false;
-    }
+      return error;
+    });
   };
 </script>
 
@@ -44,12 +46,14 @@
         type="email"
         placeholder="Your email"
         bind:value={email}
+        required
       />
       <input
         class="inputField"
         type="password"
         placeholder="Your password"
         bind:value={password}
+        required
       />
     </div>
     <div>
