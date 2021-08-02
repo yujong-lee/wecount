@@ -4,14 +4,14 @@ exports[`should render without error 1`] = `
 <body>
   <div>
     <main
-      class="svelte-1veuz41"
+      class="svelte-1q6pbdh"
     >
       <p>
         Hello there ~ 🙌 Welcome to WeCount.
       </p>
        
       <button
-        class="svelte-15wiqim"
+        class="svelte-kxtdq7"
         style=""
         type=""
         value=""
@@ -20,7 +20,7 @@ exports[`should render without error 1`] = `
       </button>
        
       <button
-        class="svelte-15wiqim"
+        class="svelte-kxtdq7"
         style=""
         type=""
         value=""

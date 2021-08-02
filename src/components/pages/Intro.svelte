@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="postcss">
   main {
     display: flex;
     flex-direction: column;

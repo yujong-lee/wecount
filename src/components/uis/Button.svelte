@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="postcss">
   button {
     background-color: var(--button);
     color: var(--text);
@@ -27,14 +27,13 @@
   function handleClick() {
     dispatch('click');
   }
-
 </script>
 
 <button
-  {type}
-  {style}
-  {value}
-  {disabled}
+  type={type}
+  style={style}
+  value={value}
+  disabled={disabled}
   on:click|preventDefault={handleClick}
 >
   <slot />
