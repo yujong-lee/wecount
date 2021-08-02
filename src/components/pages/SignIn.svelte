@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="postcss">
   main {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -68,8 +68,8 @@
   const onChangeEmail = (e: CustomEvent) => {
     email = e.detail;
   };
- 
- const onChangePassword = (e: CustomEvent) => {
+
+  const onChangePassword = (e: CustomEvent) => {
     password = e.detail;
   };
 
