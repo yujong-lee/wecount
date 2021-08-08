@@ -73,6 +73,7 @@
   import {onMount} from 'svelte';
   import {replace} from 'svelte-spa-router';
   import {user} from '../../stores/sessionStore';
+  import {upsertUser} from '../../services/userService';
 
   let loading = false;
   let email: string;

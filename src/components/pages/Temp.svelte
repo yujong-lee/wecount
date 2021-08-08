@@ -1,5 +1,10 @@
-<script lang="ts">
-  let string = `This is <strong>Temp!</strong>`;
-</script>
+<style lang="postcss">
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
 
-<p>{@html string}</p>
+<main>Temp</main>
