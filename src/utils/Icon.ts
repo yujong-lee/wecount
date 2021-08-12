@@ -1,10 +1,14 @@
-import svgArrowDown from '../../assets/svgs/arrow-down.svg';
-import svgBadgeCrown from '../../assets/svgs/badge-crown.svg';
+import svgArrowDown from '../../assets/svgs/arrow_down.svg';
+import svgBadgeCrown from '../../assets/svgs/badge_crown.svg';
 import svgCheck from '../../assets/svgs/check.svg';
+import svgCrown from '../../assets/svgs/crown.svg';
 import svgKey from '../../assets/svgs/key.svg';
+import svgLeftAngleBracket from '../../assets/svgs/left_angle_bracket.svg';
+import svgLock from '../../assets/svgs/lock.svg';
 import svgLogo from '../../assets/svgs/logo.svg';
 import svgMail from '../../assets/svgs/mail.svg';
-import svgTrashCan from '../../assets/svgs/trash-can.svg';
+import svgRightAngleBracket from '../../assets/svgs/right_angle_bracket.svg';
+import svgTrashCan from '../../assets/svgs/trash_can.svg';
 
 export const SvgCheck = svgCheck;
 export const SvgKey = svgKey;
@@ -13,3 +17,7 @@ export const SvgMail = svgMail;
 export const SvgArrowDown = svgArrowDown;
 export const SvgTrashcan = svgTrashCan;
 export const SvgBadgeCrown = svgBadgeCrown;
+export const SvgLeftAngleBracket = svgLeftAngleBracket;
+export const SvgRightAngleBracket = svgRightAngleBracket;
+export const SvgLock = svgLock;
+export const SvgCrown = svgCrown;
