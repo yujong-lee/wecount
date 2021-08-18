@@ -38,32 +38,42 @@
 </style>
 
 <script lang="ts">
-  import {createEventDispatcher} from 'svelte';
-
   export let placeholder = '';
-  export let type = 'text';
   export let containerStyle = '';
   export let inputStyle = '';
+  export let isLocaleString = false;
+  export let max = 100000000000;
+  export let min = 0;
+  export let value: number | undefined = undefined;
 
-  export let value = '';
-
-  const dispatch = createEventDispatcher();
+  let input: HTMLInputElement | null = null;
 
   // @ts-ignore
-  const onChanged = (e) => {
-    value = /^(number|range)$/.exec(type) ? +e.target.value : e.target.value;
+  const onInput = () => {
+    if (!input) return;
 
-    dispatch('changed', value);
+    const currentValue = input.value;
+    let newValue = Number(currentValue.replace(/[A-Za-z!,@#$%^&\-*()]/g, '')); // only number
+
+    if (newValue > max) newValue = max; // clamp
+
+    if (newValue < min) newValue = min;
+
+    // TODO how to support negative number
+    value = newValue;
+    input.value = isLocaleString
+      ? newValue.toLocaleString()
+      : newValue.toString();
   };
 </script>
 
 <main style={containerStyle}>
   <slot name="leftElement" />
   <input
+    bind:this={input}
     style={inputStyle}
-    type={type}
     placeholder={placeholder}
-    on:input={onChanged}
+    on:input={onInput}
   />
   <slot name="rightElement" />
 </main>
