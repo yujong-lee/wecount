@@ -122,7 +122,7 @@
 
   supabase.auth.onAuthStateChange((_, session) => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    if (user) upsertUser(user);
+    if (session?.user) upsertUser(session.user);
 
     user.set(session?.user);
   });
