@@ -20,6 +20,7 @@
   import ServiceSample from '../pages/ServiceSample.svelte';
   import Temp from '../pages/Temp.svelte';
   import CommunityCrete from '../pages/community/Create.svelte';
+  import CommunityRoute from './Community.svelte';
 
   const routes = {
     '/sign_in': SignIn,
@@ -29,6 +30,8 @@
     '/profile': Profile,
     '/service_sample': ServiceSample,
     '/community/create': CommunityCrete,
+    '/community': CommunityRoute,
+    '/community/*': CommunityRoute,
     '/*': Temp,
   };
 </script>
