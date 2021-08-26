@@ -5,8 +5,7 @@
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
     padding: 28px;
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
 
     @media (max-width: 640px) {
       border-radius: 0px;
@@ -46,7 +45,6 @@
     width: 118px;
   }
   .itemContainer {
-    flex: 1;
     padding-top: 16px;
     overflow-y: scroll;
   }
@@ -76,6 +74,9 @@
   }
   .member-name {
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .member-role {
     width: 118px;
@@ -100,9 +101,9 @@
 <script lang="ts">
   import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
-  import {SvgBadgeCrown, SvgTrashcan} from '../../utils/Icon';
-  import Button from './Button.svelte';
-  import Select from './Select.svelte';
+  import {SvgBadgeCrown, SvgTrashcan} from '../../../utils/Icon';
+  import Button from '../../uis/Button.svelte';
+  import Select from '../../uis//Select.svelte';
 
   interface Member {
     image: string;
@@ -113,7 +114,6 @@
   }
 
   export let data: Member[];
-  export let containerStyle = '';
   let threshold = 100;
   let roleList = ['Admin', 'Writer', 'Reader']; // Update Me
   let customRoleList = ['Admin', 'Writer', 'Reader']; // Update Me
@@ -158,7 +158,7 @@
   };
 </script>
 
-<main style={containerStyle}>
+<main class={$$props.class}>
   <div class="title">{$_('member')}</div>
   <div class="labelContainer">
     <div class="label-name">{$_('Member.name')}</div>
