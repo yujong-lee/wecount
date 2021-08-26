@@ -1,7 +1,6 @@
 <style lang="postcss">
   .member-card {
-    width: 366px;
-    height: 174px;
+    width: 100%;
   }
   .header {
     display: flex;
@@ -9,9 +8,14 @@
     justify-content: space-between;
     margin-bottom: 12px;
   }
+  .sub-heading {
+    font-weight: bold;
+  }
   .members {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
   }
   .member-number {
     color: var(--green70);
@@ -49,7 +53,9 @@
         </MemberContainer>
       {/each}
       <MemberContainer name="Add">
-        <PlusButton />
+        <div style="height: 50px;">
+          <PlusButton />
+        </div>
       </MemberContainer>
     </div>
   </Card>
