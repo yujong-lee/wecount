@@ -16,6 +16,8 @@ model User {
   phone                String?   @db.VarChar(255)
   avatar_url           String?   @db.VarChar(255)
   avatar_thumb_url     String?   @db.VarChar(255)
+  displayName          String?   @db.VarChar(255)
+  name                 String?   @db.VarChar(255)
 
   created_at         DateTime  @default(now())
   updated_at         DateTime? @default(now())
