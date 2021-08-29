@@ -1141,6 +1141,8 @@ export interface paths {
           phone_confirmed_at?: parameters["rowFilter.User.phone_confirmed_at"];
           last_sign_in_at?: parameters["rowFilter.User.last_sign_in_at"];
           role?: parameters["rowFilter.User.role"];
+          displayName?: parameters["rowFilter.User.displayName"];
+          name?: parameters["rowFilter.User.name"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -1206,6 +1208,8 @@ export interface paths {
           phone_confirmed_at?: parameters["rowFilter.User.phone_confirmed_at"];
           last_sign_in_at?: parameters["rowFilter.User.last_sign_in_at"];
           role?: parameters["rowFilter.User.role"];
+          displayName?: parameters["rowFilter.User.displayName"];
+          name?: parameters["rowFilter.User.name"];
         };
         header: {
           /** Preference */
@@ -1235,6 +1239,8 @@ export interface paths {
           phone_confirmed_at?: parameters["rowFilter.User.phone_confirmed_at"];
           last_sign_in_at?: parameters["rowFilter.User.last_sign_in_at"];
           role?: parameters["rowFilter.User.role"];
+          displayName?: parameters["rowFilter.User.displayName"];
+          name?: parameters["rowFilter.User.name"];
         };
         body: {
           /** User */
@@ -1590,6 +1596,8 @@ export interface definitions {
     phone_confirmed_at?: string;
     last_sign_in_at?: string;
     role?: string;
+    displayName?: string;
+    name?: string;
   };
   _CategoryToFeed: {
     /**
@@ -1753,6 +1761,8 @@ export interface parameters {
   "rowFilter.User.phone_confirmed_at": string;
   "rowFilter.User.last_sign_in_at": string;
   "rowFilter.User.role": string;
+  "rowFilter.User.displayName": string;
+  "rowFilter.User.name": string;
   /** _CategoryToFeed */
   "body._CategoryToFeed": definitions["_CategoryToFeed"];
   "rowFilter._CategoryToFeed.A": string;
