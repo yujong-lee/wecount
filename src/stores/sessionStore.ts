@@ -1,4 +1,9 @@
 import {User} from '@supabase/supabase-js';
 import {writable} from 'svelte/store';
 
-export const user = writable<User | null>(null);
+type UserExtended = {
+  avatarUrl?: string;
+  displayName?: string;
+}
+
+export const user = writable<(Partial<User> & UserExtended) | null>(null);
