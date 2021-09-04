@@ -1132,8 +1132,8 @@ export interface paths {
           recovery_sent_at?: parameters["rowFilter.User.recovery_sent_at"];
           email?: parameters["rowFilter.User.email"];
           phone?: parameters["rowFilter.User.phone"];
-          avatar_url?: parameters["rowFilter.User.avatar_url"];
-          avatar_thumb_url?: parameters["rowFilter.User.avatar_thumb_url"];
+          avatarUrl?: parameters["rowFilter.User.avatarUrl"];
+          avatarUrlThumb?: parameters["rowFilter.User.avatarUrlThumb"];
           created_at?: parameters["rowFilter.User.created_at"];
           updated_at?: parameters["rowFilter.User.updated_at"];
           confirmed_at?: parameters["rowFilter.User.confirmed_at"];
@@ -1199,8 +1199,8 @@ export interface paths {
           recovery_sent_at?: parameters["rowFilter.User.recovery_sent_at"];
           email?: parameters["rowFilter.User.email"];
           phone?: parameters["rowFilter.User.phone"];
-          avatar_url?: parameters["rowFilter.User.avatar_url"];
-          avatar_thumb_url?: parameters["rowFilter.User.avatar_thumb_url"];
+          avatarUrl?: parameters["rowFilter.User.avatarUrl"];
+          avatarUrlThumb?: parameters["rowFilter.User.avatarUrlThumb"];
           created_at?: parameters["rowFilter.User.created_at"];
           updated_at?: parameters["rowFilter.User.updated_at"];
           confirmed_at?: parameters["rowFilter.User.confirmed_at"];
@@ -1230,8 +1230,8 @@ export interface paths {
           recovery_sent_at?: parameters["rowFilter.User.recovery_sent_at"];
           email?: parameters["rowFilter.User.email"];
           phone?: parameters["rowFilter.User.phone"];
-          avatar_url?: parameters["rowFilter.User.avatar_url"];
-          avatar_thumb_url?: parameters["rowFilter.User.avatar_thumb_url"];
+          avatarUrl?: parameters["rowFilter.User.avatarUrl"];
+          avatarUrlThumb?: parameters["rowFilter.User.avatarUrlThumb"];
           created_at?: parameters["rowFilter.User.created_at"];
           updated_at?: parameters["rowFilter.User.updated_at"];
           confirmed_at?: parameters["rowFilter.User.confirmed_at"];
@@ -1587,8 +1587,8 @@ export interface definitions {
     recovery_sent_at?: string;
     email?: string;
     phone?: string;
-    avatar_url?: string;
-    avatar_thumb_url?: string;
+    avatarUrl?: string;
+    avatarUrlThumb?: string;
     created_at: string;
     updated_at?: string;
     confirmed_at?: string;
@@ -1752,8 +1752,8 @@ export interface parameters {
   "rowFilter.User.recovery_sent_at": string;
   "rowFilter.User.email": string;
   "rowFilter.User.phone": string;
-  "rowFilter.User.avatar_url": string;
-  "rowFilter.User.avatar_thumb_url": string;
+  "rowFilter.User.avatarUrl": string;
+  "rowFilter.User.avatarUrlThumb": string;
   "rowFilter.User.created_at": string;
   "rowFilter.User.updated_at": string;
   "rowFilter.User.confirmed_at": string;

@@ -139,7 +139,7 @@
     description: string;
     Category: {name: string}[];
     Image: {url: string}[];
-    user: {name: string; avatar_url: string};
+    user: {name: string; avatarUrl: string};
   }
 
   export let data: Feed;
@@ -150,7 +150,7 @@
 <div class="container">
   <div class="header">
     <div class="avatar-container">
-      <img alt="User Avatar" src={data.user.avatar_url} />
+      <img alt="User Avatar" src={data.user.avatarUrl} />
       <div class="avatar-label-container">
         <div class="from-now">{dayjs(data.createdAt).fromNow()}</div>
         <div class="user-name">{data.user.name}</div>
