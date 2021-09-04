@@ -3,6 +3,7 @@ import {writable} from 'svelte/store';
 
 type UserExtended = {
   avatarUrl?: string;
+  name?: string;
   displayName?: string;
 }
 

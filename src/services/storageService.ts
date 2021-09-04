@@ -16,7 +16,32 @@ export interface UploadMultipleImageOption {
   bucket: 'staging' | 'production'
 }
 
-export const uploadMultipleImage = 
+
+export const uploadSingleImage = 
+  async (file?: File): Promise<string | null> =>
+{
+    if (!file) return null;
+
+    const compressed = await imageCompression(file, {});
+
+    // Image Upload to supabase
+    const filename = Date.now().toString() + '@' + nanoid(4);
+    const splitedFilename = compressed.name.split('.');
+    const fileType = splitedFilename[splitedFilename.length - 1];
+    const path = 'images/' + filename + '.' + fileType;
+
+    const {error} = await supabase.storage.from('staging').upload(path, compressed, {upsert:false});
+    
+    if(error) throw error;
+
+    const {publicURL} = supabase.storage.from('staging').getPublicUrl(path);
+
+    return publicURL;
+
+};
+
+
+export const uploadMultipleImages = 
   async (files:File[] | FileList , {dirs, bucket, ...option}: UploadMultipleImageOption): Promise<string[]> =>
 {
     // Iamge compress

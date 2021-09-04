@@ -30,7 +30,7 @@
     --red50: #f15454;
     --red90: #871400;
 
-    --positive: var(--green50);
+    --positive: var(--green70);
     --negative: var(--red50);
     --info: var(--blue50);
     --warn: var(--yellow50);
