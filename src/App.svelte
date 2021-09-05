@@ -149,19 +149,22 @@
 
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   supabase.auth.onAuthStateChange(async (_, session) => {
-    if (session?.user) await upsertUser(session.user);
+    if (session?.user) {
+      await upsertUser(session.user);
 
-    let {data} = await supabase
-      .from<definitions['User']>('User')
-      .select(`displayName, name, avatarUrl`)
-      .eq('id', session?.user?.id)
-      .single();
+      let {data} = await supabase
+        .from<definitions['User']>('User')
+        .select(`displayName, name, avatarUrl`)
+        .eq('id', session?.user.id)
+        .single();
 
-    user.set({
-      ...session?.user,
-      avatarUrl: data?.avatarUrl || '',
-      displayName: data?.displayName || '',
-    });
+      user.set({
+        ...session.user,
+        avatarUrl: data?.avatarUrl || '',
+        displayName: data?.displayName || '',
+        name: data?.name || '',
+      });
+    }
   });
 
   toggleTheme();
