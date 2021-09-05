@@ -28,7 +28,5 @@
       alt="User image"
     />
   </div>
-  <p>
-    {name}
-  </p>
+  <p>{name}</p>
 </div>
