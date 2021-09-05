@@ -2,8 +2,43 @@ import imageCompression from 'browser-image-compression';
 import {nanoid} from 'nanoid';
 import supabase from "../lib/db";
 
+type UploadDir = 'communities' | 'profiles' | 'replies' | 'feeds' | 'images';
+type UploadBucket = 'staging' | 'production';
+
+export type UploadSingleImageType = {
+  file?: File;
+  fileName?: string;
+  dir?: UploadDir;
+  bucket?: UploadBucket;
+}
+
+export const uploadSingleImage = 
+  async ({
+    file, 
+    fileName = Date.now().toString() + '@' + nanoid(4),
+    dir = 'images',
+    bucket = 'staging',
+  }: UploadSingleImageType): Promise<string | null> => {
+    if (!file) return null;
+
+    const compressed = await imageCompression(file, {});
+
+    // Image Upload to supabase
+    const splitedFilename = compressed.name.split('.');
+    const fileType = splitedFilename[splitedFilename.length - 1];
+    const path = `${dir}/${fileName}.${fileType}`;
+
+    const {error} = await supabase.storage.from(bucket).upload(path, compressed, {upsert:false});
+    
+    if(error) throw error;
+
+    const {publicURL} = supabase.storage.from(bucket).getPublicUrl(path);
+
+    return publicURL;
+};
+
 export interface UploadMultipleImageOption { 
-  maxSizeMB?: number,          // (default: Number.POSITIVE_INFINITY)
+  maxSizeMB?: number          // (default: Number.POSITIVE_INFINITY)
   maxWidthOrHeight?: number   // compressedFile will scale down by ratio to a point that width or height is smaller than maxWidthOrHeight (default: undefined)
 
   // following options are for advanced users
@@ -12,38 +47,15 @@ export interface UploadMultipleImageOption {
   fileType?: string           // optional, fileType override
   initialQuality?: number      // optional, initial quality value between 0 and 1 (default: 1)
 
-  dirs: 'communities' | 'profiles' | 'replies' | 'feeds' 
-  bucket: 'staging' | 'production'
+  dirs: UploadDir
+  bucket: UploadBucket
 }
 
-
-export const uploadSingleImage = 
-  async (file?: File): Promise<string | null> =>
-{
-    if (!file) return null;
-
-    const compressed = await imageCompression(file, {});
-
-    // Image Upload to supabase
-    const filename = Date.now().toString() + '@' + nanoid(4);
-    const splitedFilename = compressed.name.split('.');
-    const fileType = splitedFilename[splitedFilename.length - 1];
-    const path = 'images/' + filename + '.' + fileType;
-
-    const {error} = await supabase.storage.from('staging').upload(path, compressed, {upsert:false});
-    
-    if(error) throw error;
-
-    const {publicURL} = supabase.storage.from('staging').getPublicUrl(path);
-
-    return publicURL;
-
-};
-
-
 export const uploadMultipleImages = 
-  async (files:File[] | FileList , {dirs, bucket, ...option}: UploadMultipleImageOption): Promise<string[]> =>
-{
+  async (
+    files:File[] | FileList ,
+    {dirs, bucket, ...option}: UploadMultipleImageOption,
+  ): Promise<string[]> => {
     // Iamge compress
     const compressedFiles = await Promise.all(Array.from(files).map((file) => imageCompression(file, option)));
 
