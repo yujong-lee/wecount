@@ -30,7 +30,7 @@
     --red50: #f15454;
     --red90: #871400;
 
-    --positive: var(--green50);
+    --positive: var(--green70);
     --negative: var(--red50);
     --info: var(--blue50);
     --warn: var(--yellow50);
@@ -125,7 +125,9 @@
   }
 </style>
 
-<script>
+<script lang="ts">
+  import type {definitions} from './types/supabase';
+
   import './i18n';
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
@@ -145,11 +147,24 @@
     });
   };
 
-  supabase.auth.onAuthStateChange((_, session) => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    if (session?.user) upsertUser(session.user);
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  supabase.auth.onAuthStateChange(async (_, session) => {
+    if (session?.user) {
+      await upsertUser(session.user);
 
-    user.set(session?.user);
+      let {data} = await supabase
+        .from<definitions['User']>('User')
+        .select(`displayName, name, avatarUrl`)
+        .eq('id', session?.user.id)
+        .single();
+
+      user.set({
+        ...session.user,
+        avatarUrl: data?.avatarUrl || '',
+        displayName: data?.displayName || '',
+        name: data?.name || '',
+      });
+    }
   });
 
   toggleTheme();

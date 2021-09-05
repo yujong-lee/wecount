@@ -49,7 +49,7 @@ export const updateUserAvatar = async (
     const {data, error} = await supabase
     .from<definitions["User"]>('User')
     .update({
-      avatar_url: avatarURL,
+      avatarUrl: avatarURL,
     })
     .match({id: userId})
     .single();

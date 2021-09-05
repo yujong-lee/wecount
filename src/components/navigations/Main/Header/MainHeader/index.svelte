@@ -22,29 +22,11 @@
 </style>
 
 <script lang="ts">
-  import type {definitions} from '../../../../types/supabase';
-
   import {push, replace} from 'svelte-spa-router';
-  import {user} from '../../../../stores/sessionStore';
-  import {SvgBell} from '../../../../utils/Icon';
+  import {user} from '../../../../../stores/sessionStore';
+  import {SvgBell} from '../../../../../utils/Icon';
   import Profile from './Profile.svelte';
   import Search from './Serach.svelte';
-  import {onMount} from 'svelte';
-  import supabase from '../../../../lib/db';
-
-  onMount(async () => {
-    if ($user) {
-      let {data, error, status} = await supabase
-        .from<definitions['User']>('User')
-        .select(`displayName, name, avatar_url`)
-        .eq('id', $user.id)
-        .single();
-
-      console.log('data', data);
-
-      if (error && status !== 406) throw error;
-    }
-  });
 
   const goToProfile = async (): Promise<void> => {
     if ($user) {
@@ -65,6 +47,9 @@
     <SvgBell />
   </div>
   <div class="profile" on:click={goToProfile}>
-    <Profile name="hanna" imageSrc={'https://picsum.photos/200'} />
+    <Profile
+      name={$user?.displayName || ''}
+      imageSrc={$user?.avatarUrl || ''}
+    />
   </div>
 </div>

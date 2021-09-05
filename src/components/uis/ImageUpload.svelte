@@ -53,7 +53,7 @@
 </style>
 
 <script lang="ts">
-  import {uploadMultipleImage} from '../../services/storageService';
+  import {uploadMultipleImages} from '../../services/storageService';
   // eslint-disable-next-line no-duplicate-imports
   import type {UploadMultipleImageOption} from '../../services/storageService';
   import {SvgUploadClose, SvgUploadPlus} from '../../utils/Icon';
@@ -77,7 +77,7 @@
 
       const slicedFiles = Array.from(files).slice(0, max - uris.length);
 
-      const newUris = await uploadMultipleImage(slicedFiles, option);
+      const newUris = await uploadMultipleImages(slicedFiles, option);
 
       uris = [...preUris, ...newUris];
     } catch (error) {

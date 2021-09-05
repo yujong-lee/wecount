@@ -1,3 +1,4 @@
+import imgNoProfile from '../../assets/images/no_profile.png';
 import svgArrowDown from '../../assets/svgs/arrow_down.svg';
 import svgArrowLeft from '../../assets/svgs/arrow_left.svg';
 import svgArrowRight from '../../assets/svgs/arrow_right.svg';
@@ -29,6 +30,7 @@ import svgTrashCan from '../../assets/svgs/trash_can.svg';
 import svgUploadClose from '../../assets/svgs/upload_close.svg';
 import svgUploadPlus from '../../assets/svgs/upload_plus.svg';
 
+export const ImageNoProfile = imgNoProfile;
 export const SvgCheck = svgCheck;
 export const SvgKey = svgKey;
 export const SvgLogo = svgLogo;

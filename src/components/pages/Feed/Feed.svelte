@@ -50,7 +50,7 @@
     description: string;
     Category: {name: string}[];
     Image: {url: string}[];
-    user: {name: string; avatar_url: string};
+    user: {name: string; avatarUrl: string};
   }
 
   /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -63,7 +63,7 @@
       price: faker.datatype.number({min: -10000000, max: 10000000}),
       description: faker.lorem.lines(10),
       user: {
-        avatar_url: faker.image.avatar(),
+        avatarUrl: faker.image.avatar(),
         name: faker.name.firstName(),
       },
       Category: Array(faker.datatype.number({min: 0, max: 5}))

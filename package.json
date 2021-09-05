@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "yarn generate",
     "build": "rollup -c",
     "dev": "dotenv -e ./dotenv/.env -- rollup -c -w",
     "start": "dotenv -e ./dotenv/.env -- sirv public --no-clear",
@@ -33,6 +32,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",

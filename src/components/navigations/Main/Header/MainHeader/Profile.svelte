@@ -14,7 +14,7 @@
 </style>
 
 <script lang="ts">
-  import CircleImage from '../../../uis/CircleImage.svelte';
+  import CircleImage from '../../../../uis/CircleImage.svelte';
 
   export let name: string;
   export let imageSrc: string;
@@ -28,7 +28,5 @@
       alt="User image"
     />
   </div>
-  <p>
-    {name}
-  </p>
+  <p>{name}</p>
 </div>
