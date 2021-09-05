@@ -3,6 +3,7 @@ import sveltePreprocess, {postcss} from 'svelte-preprocess';
 import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-only';
 import dotenv from 'dotenv';
+import image from '@rollup/plugin-image';
 import json from "@rollup/plugin-json";
 import livereload from 'rollup-plugin-livereload';
 import replace from '@rollup/plugin-replace';
@@ -49,6 +50,7 @@ export default {
 	},
 	plugins: [
 		typescript(),
+		image(),
 		svelteSVG({
 			svgo: {}
 		}),
