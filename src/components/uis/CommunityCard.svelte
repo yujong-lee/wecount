@@ -85,10 +85,10 @@
   export let community: CommunityType;
   export let user: UserType;
   export let balance: number | undefined = undefined;
-  export let cardStyle: string | undefined = undefined;
+  export let style: string | undefined = undefined;
 </script>
 
-<div class="card" style={cardStyle}>
+<div class="card" style={style}>
   <div class="community-layout">
     <div class="coummunity-name-layout">
       {#if !community.isPublic}

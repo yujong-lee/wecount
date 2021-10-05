@@ -125,13 +125,13 @@
     </h3>
     <div class="community-card-carousel">
       <Card
-        cardStyle="padding: 28px 18px; display: flex; justify-content: center; align-items: center;"
+        style="padding: 28px 18px; display: flex; justify-content: center; align-items: center;"
       >
         <Carousel item={item} onChange={getColor} />
       </Card>
     </div>
     <div class="input-card">
-      <Card cardStyle="padding: 34px; 28px;">
+      <Card style="padding: 34px; 28px;">
         <InputContainer>
           <svelte:fragment slot="label">
             {$_('Community.type')}
