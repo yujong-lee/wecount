@@ -33,9 +33,8 @@
   "Onboarding": {
     "hello": "Hellow there. 🙌",
     "welcome": "Welcome to Wecount.",
-    "creating_a_community": "Creating a community",
-    "create_a_community": "Create a community",
-    "try_managing_the_funds": "Try managing the funds",
+    "create_community": "Create community",
+    "create_community_desc": "Create and manage account for community",
     "entering_the_community": "Entering the Community",
     "explore_the_community": "Explore the community and",
     "support_sponsorship": "support it through sponsorship"

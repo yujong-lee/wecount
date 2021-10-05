@@ -1,9 +1,12 @@
 <style lang="postcss">
   .container {
+    width: 100%;
+
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 56px 1fr;
   }
+
   @media (--mobile) {
     .container {
     }
@@ -26,7 +29,6 @@
     '/sign_in': SignIn,
     '/sign_up': SignUp,
     '/': Onboarding,
-    // '/lorem/:repeat': Lorem,
     '/profile': Profile,
     '/service_sample': ServiceSample,
     '/community/create': CommunityCreate,
