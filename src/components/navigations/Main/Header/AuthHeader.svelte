@@ -1,23 +1,39 @@
+<style lang="postcss">
+  :global(.button) {
+    min-width: 80px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import {push} from 'svelte-spa-router';
   import Button from '../../../uis/Button.svelte';
 </script>
 
-<Button
-  on:click={async () => {
-    await push('/sign_in');
-  }}
-  style="color: black; font-size: 14px; align-self: stretch;"
->
-  <div class="text">{$_('login')}</div>
-</Button>
-<Button
-  on:click={() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    push('/sign_up');
-  }}
-  style="font-size: 14px; margin-left: 12px; align-self: stretch;"
->
-  <div class="text">{$_('SignUp.title')}</div>
-</Button>
+<div class="container">
+  <Button
+    style="margin-right: 8px;"
+    class="button"
+    on:click={async () => {
+      await push('/sign_in');
+    }}
+  >
+    <div class="body3">{$_('login')}</div>
+  </Button>
+  <Button
+    primary
+    class="button"
+    on:click={async () => {
+      await push('/sign_up');
+    }}
+  >
+    <div class="body3">{$_('SignUp.title')}</div>
+  </Button>
+</div>

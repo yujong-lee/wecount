@@ -53,14 +53,17 @@
 
   :global(.heading1) {
     font-size: 40px;
+    font-weight: bold;
   }
 
   :global(.heading2) {
     font-size: 32px;
+    font-weight: bold;
   }
 
   :global(.heading3) {
     font-size: 28px;
+    font-weight: bold;
   }
 
   :global(.body1) {

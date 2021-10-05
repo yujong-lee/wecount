@@ -20,7 +20,7 @@
   import SignIn from '../../pages/SignIn.svelte';
   import SignUp from '../../pages/SignUp.svelte';
   import ServiceSample from '../../pages/ServiceSample.svelte';
-  import Onboarding from '../../pages/Onboarding.svelte';
+  import Onboarding from '../../pages/Onboarding';
   import CommunityCreate from '../../pages/community/CommunityCreate.svelte';
   import CommunityRoute from '../Community';
   import Temp from '../../pages/Temp.svelte';
