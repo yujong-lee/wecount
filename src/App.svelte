@@ -3,121 +3,115 @@
   @custom-media --mobile (max-width: 640px);
 
   :global(body) {
-    --desktop: 1200px;
-    --green20: #cbffdd;
-    --green30: #7ee2d3;
-    --green40: #28db98;
-    --green70: #0db293;
-    --green80: #00715b;
-    --green90: #074539;
-    --gray10: #f9f9f9;
-    --gray20: #f3f4f5;
-    --gray30: #e3e4e5;
-    --gray40: #d0d1d3;
-    --gray50: #b5b6b9;
-    --gray60: #8e9095;
-    --gray70: #76777d;
-    --gray80: #4c4d53;
-    --gray90: #2a2a2c;
-    --gray100: #1b1b1c;
-    --blue10: #f0f5ff;
-    --blue50: #3a74e7;
-    --blue90: #061178;
-    --yellow10: #fffbe6;
-    --yellow50: #ffc53d;
-    --yellow90: #874d00;
-    --red10: #fff2e8;
-    --red50: #f15454;
-    --red90: #871400;
-
-    --positive: var(--green70);
-    --negative: var(--red50);
-    --info: var(--blue50);
-    --warn: var(--yellow50);
-
-    --button: var(--gray10);
-    --placeholder: var(--gray10);
-    --text: var(--gray100);
-    --link: var(--gray60);
-    --border: var(--gray30);
-    --input-focus: var(--gray80);
-    --background-color: white;
-    --primary: var(--green70);
-    --shading: var(--gray10);
+    --background: #fff;
     --paper: #f2f5f6;
-    --nav: white;
-    --card: white;
-
-    background-color: var(--background-color);
-    color: var(--gray100);
-    transition: background-color 0.3s;
+    --disabled: #c4c4c4;
+    --text: #000;
+    --text-light: #1b1b1b;
+    --textContrast: #fff;
+    --placeholder: #6d6d6d;
+    --main: var(--primary);
+    --main-dark: var(--primary-light);
+    --card: #fff;
+    --border: #d3d4d5;
+    --link: #8e9095;
   }
   :global(body.dark-mode) {
-    --button: var(--green30);
-    --placeholder: var(--gray80);
-    --text: var(--gray10);
-    --background-color: var(--gray90);
-    --shading: var(--gray90);
-    --paper: var(--gray90);
-    --nav: black;
-    --card: var(--gray100);
-
-    background-color: var(--background-color);
-    color: var(--gray10);
+    --background: #000;
+    --paper: #2a2a2a;
+    --disabled: #515151;
+    --placeholder: #6d6d6d;
+    --text: #fff;
+    --text-light: #d3d3d3;
+    --textContrast: #000;
+    --main: var(--primary-light);
+    --main-dark: var(--primary);
+    --card: #1c1c1c;
+    --border: #343536;
+    --link: #a5a7ac;
   }
-  * {
-    font-family: 'Spoqa Han Sans Neo';
+  :global(body) {
+    --brand: #28db98;
+    --primary: #0db293;
+    --primary-light: #75d0b8;
+    --secondary: #00d9d5;
+    --success: #33ff2f;
+    --danger: #ff002e;
+    --warning: #f2df0f;
+    --info: #3a74e7;
+    --light: #ededed;
+    --red: #ff728d;
+    --orange: #f6a623;
+    --yellow: #eed100;
+    --green: #24cd97;
+    --blue: #679eff;
+    --purple: #b669f9;
+  }
+
+  body {
+    font-family: Roboto;
+    transition: background-color 0.3s;
+    background-color: var(--background);
     color: var(--text);
+
+    input {
+      background-color: var(--background);
+      color: var(--text);
+      caret-color: var(--text);
+
+      &:focus {
+        outline: 1px solid var(--primary);
+      }
+    }
+
+    textarea {
+      background-color: var(--background);
+      color: var(--text);
+      caret-color: var(--text);
+      box-sizing: border-box;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      resize: none;
+
+      &:focus {
+        outline: 1px solid var(--primary);
+      }
+    }
   }
 
-  :global(h1) {
-    font-size: 2.625rem;
-    line-height: 63px;
+  :global(.heading1) {
+    font-size: 40px;
+    font-weight: bold;
   }
 
-  :global(h2) {
-    font-size: 2rem;
-    line-height: 48px;
+  :global(.heading2) {
+    font-size: 32px;
+    font-weight: bold;
   }
 
-  :global(h3) {
-    font-size: 1.75rem;
-    line-height: 42px;
+  :global(.heading3) {
+    font-size: 28px;
+    font-weight: bold;
   }
 
-  :global(h4) {
-    font-size: 1.625rem;
-    line-height: 40px;
+  :global(.body1) {
+    font-size: 20px;
   }
 
-  :global(h5) {
-    font-size: 1.5rem;
-    line-height: 36px;
+  :global(.body2) {
+    font-size: 16px;
   }
 
-  :global(h6) {
-    font-size: 1.25rem;
-    line-height: 30px;
+  :global(.body3) {
+    font-size: 14px;
   }
 
-  :global(p) {
-    font-size: 1rem;
-    line-height: 32px;
+  :global(.body4) {
+    font-size: 12px;
   }
 
-  :global(.p2) {
-    font-size: 0.875rem;
-    line-height: 22px;
-  }
-
-  :global(.sub-heading) {
-    font-size: 1.125rem;
-    line-height: 31px;
-  }
-
-  :global(caption) {
-    font-size: 0.75rem;
-    line-height: 21px;
+  :global(.body5) {
+    font-size: 10px;
   }
 
   main {

@@ -36,7 +36,7 @@
 </script>
 
 <div class="member-card" style={style}>
-  <Card cardStyle={'padding: 28px;'}>
+  <Card style={'padding: 28px;'}>
     <div class="header">
       <div>
         <span class="sub-heading">{$_('member')}</span>

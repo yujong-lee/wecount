@@ -15,9 +15,9 @@
 </style>
 
 <script lang="ts">
-  export let cardStyle: string | undefined = undefined;
+  export let style: string | undefined = undefined;
 </script>
 
-<div class="card" style={cardStyle}>
+<div class="card" style={style}>
   <slot />
 </div>

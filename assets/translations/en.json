@@ -27,18 +27,16 @@
     "pw_hint": "Write your password",
     "pw_confirm": "Confirm password",
     "pw_confirm_hint": "Confirm your password",
-    "terms_and_agreement": "I agree with &nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>&nbsp;and&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
+    "terms_and_agreement": "I agree with &nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>and&nbsp;&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
     "missing_inputs": "Some information is missing. Please fill all information."
   },
   "Onboarding": {
     "hello": "Hellow there. 🙌",
     "welcome": "Welcome to Wecount.",
-    "creating_a_community": "Creating a community",
-    "create_a_community": "Create a community",
-    "try_managing_the_funds": "Try managing the funds",
-    "entering_the_community": "Entering the Community",
-    "explore_the_community": "Explore the community and",
-    "support_sponsorship": "support it through sponsorship"
+    "create_community": "Create community",
+    "create_community_desc": "Create and manage account for community",
+    "enter_community": "Enter the Community",
+    "enter_community_desc": "Explore the community and support it through sponsorship"
   },
   "Temp": {
     "title": "Template"

@@ -71,7 +71,7 @@
 
 <div class="summary-card">
   <Card
-    cardStyle={'height: 100%; padding: 28px; 24px; display: flex; gap: 20px; flex-wrap: wrap;'}
+    style={'height: 100%; padding: 28px; 24px; display: flex; gap: 20px; flex-wrap: wrap;'}
   >
     <div class="left-column">
       <div class="sub-heading community-name">
@@ -83,7 +83,7 @@
           user={user}
           community={community}
           balance={100000}
-          cardStyle={'background-color: var(--primary); width: 100%;'}
+          style={'background-color: var(--primary); width: 100%;'}
         />
       </div>
       <div>

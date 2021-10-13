@@ -1,11 +1,12 @@
 <style lang="postcss">
   nav {
+    background-color: var(--background-color);
+    border-bottom: solid 1px;
+    border-bottom-color: var(--primary-light);
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--nav);
-    border-bottom: solid 1px;
-    border-bottom-color: var(--gray20);
   }
   .layout {
     width: 1200px;
@@ -36,7 +37,7 @@
 
 <nav>
   <div class="layout">
-    <SvgLogo width="34.29" />
+    <SvgLogo width="34" />
     <div class="nav-menu">
       {#if $user}
         <MainHeader />

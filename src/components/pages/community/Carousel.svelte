@@ -100,7 +100,7 @@
   export let onChange: (selectedColor: string) => void;
   export let carouselStyle: string | undefined = undefined;
   export let cardLayoutStyle: string | undefined = undefined;
-  export let cardStyle: string | undefined = undefined;
+  export let style: string | undefined = undefined;
   export let dotStyle: string | undefined = undefined;
 
   const colors = item.colors;
@@ -150,8 +150,8 @@
             <CommunityCard
               user={item.user}
               community={item.community}
-              cardStyle={`background-color:${color}; height:100%; ${
-                cardStyle ? cardStyle : ''
+              style={`background-color:${color}; height:100%; ${
+                style ? style : ''
               }`}
             />
           </div>
