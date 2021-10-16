@@ -52,6 +52,7 @@ module.exports = {
   plugins: ['svelte3', '@typescript-eslint'],
   ignorePatterns: ['node_modules'],
   rules: {
+    '@typescript-eslint/no-unsafe-argument': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     'object-curly-spacing': ["error", "never"],
