@@ -60,17 +60,35 @@
 
 <script lang="ts">
   import supabase from '../../lib/db';
-  import {SvgKey, SvgLogo, SvgMail} from '../../utils/Icon';
+  import {SvgFacebook, SvgKey, SvgLogo, SvgMail} from '../../utils/Icon';
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
-  import {onMount} from 'svelte';
   import {replace} from 'svelte-spa-router';
   import {user} from '../../stores/sessionStore';
+  import {onMount} from 'svelte';
+
+  user.subscribe((isLoggedIn) => {
+    if (isLoggedIn) replace('/').catch((err) => console.log(err));
+  });
 
   let loading = false;
   let email: string;
   let password: string;
+
+  const fbBtnStyle = `
+    align-self: stretch;
+    border-radius: 4px;
+    background-color: #375A93;
+    color: var(--textContrast);
+    margin-bottom: 12px;
+    margin: 0 10%;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+  `;
 
   onMount(async () => {
     if ($user) await replace('/');
@@ -84,43 +102,41 @@
     password = e.detail;
   };
 
-  const handleAuthException = async (callback: () => Promise<Error | null>) => {
+  const handleLogin = async () => {
     try {
       loading = true;
-      const error = await callback();
+      const {error} = await supabase.auth.signIn({
+        email,
+        password,
+      });
 
       if (error) throw error;
-    } catch (error: any) {
-      alert(error.error_description || error.message);
+    } catch (error) {
+      console.log(error);
     } finally {
       loading = false;
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/require-await
-  const handleLogin = async () => {
-    await handleAuthException(async () => {
-      const {error} = await supabase.auth.signIn({email, password});
+  const signInWithFacebook = async () => {
+    try {
+      loading = true;
+      const {user, session, error, url} = await supabase.auth.signIn({
+        provider: 'facebook',
+      });
 
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      if (!error) replace('/');
+      //! Caveat: Run below code when supabase does not work as intended.
+      if (!user && !error && !session) {
+        window.open(url as string);
+        window.close();
+      }
 
-      return error;
-    });
-  };
-
-  const handleSignInWithGoogle = async () => {
-    // await handleAuthException(async () => {
-    //   const {error} = await supabase.auth.signUp({email, password});
-    //   return error;
-    // });
-  };
-
-  const handleSignInWithFacebook = async () => {
-    // await handleAuthException(async () => {
-    //   const {error} = await supabase.auth.signUp({email, password});
-    //   return error;
-    // });
+      if (error) throw error;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loading = false;
+    }
   };
 </script>
 
@@ -153,30 +169,17 @@
     <Button
       on:click={handleLogin}
       primary
-      style="font-size: 14px; align-self: stretch; margin: 40px 10% 0 10%"
-      type="submit"
+      style="align-self: stretch; margin: 40px 10% 10px 10%"
       disabled={loading}
       loading={loading}
     >
-      <div class="text" style="color: white;">
+      <div class="text body3" style="font-weight: 500; color: white;">
         {$_('sign_in')}
       </div>
     </Button>
-    <Button
-      on:click={handleSignInWithGoogle}
-      class="social-button"
-      style="margin: 12px 10%;"
-    >
-      <div class="text" style="font-weight: 500;">
-        {$_('SignIn.sign_in_with_google')}
-      </div>
-    </Button>
-    <Button
-      on:click={handleSignInWithFacebook}
-      style="margin: 0 10%;"
-      class="social-button"
-    >
-      <div class="text" style="font-weight: 500;">
+    <Button style={fbBtnStyle} on:click={signInWithFacebook}>
+      <SvgFacebook style="margin-right: 15px;" />
+      <div class="text body3" style="font-weight: 500; color: white;">
         {$_('SignIn.sign_in_with_facebook')}
       </div>
     </Button>
