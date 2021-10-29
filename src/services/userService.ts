@@ -7,7 +7,7 @@ export const upsertUser = async (
 ): Promise<definitions["User"] | null> => {
   if (!user || !user.id) return null;
 
-  const prismaUser: definitions["User"] = {
+  const supaUser: definitions["User"] = {
     aud: user.aud,
     confirmation_sent_at: user.confirmation_sent_at,
     confirmed_at: user.confirmed_at,
@@ -27,7 +27,7 @@ export const upsertUser = async (
     const {data, error} = await supabase
     .from<definitions["User"]>('User')
     .upsert([
-      {...prismaUser},
+      {...supaUser},
     ]).single();
 
     if (error) throw error;

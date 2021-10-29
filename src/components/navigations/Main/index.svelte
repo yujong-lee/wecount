@@ -22,7 +22,7 @@
   import ServiceSample from '../../pages/ServiceSample.svelte';
   import Onboarding from '../../pages/Onboarding';
   import CommunityCreate from '../../pages/community/CommunityCreate.svelte';
-  import CommunityRoute from '../Community';
+  import Community from '../Community';
   import Temp from '../../pages/Temp.svelte';
 
   const routes = {
@@ -32,8 +32,7 @@
     '/profile': Profile,
     '/service_sample': ServiceSample,
     '/community/create': CommunityCreate,
-    '/community': CommunityRoute,
-    '/community/*': CommunityRoute,
+    '/community/:id': Community,
     '/*': Temp,
   };
 </script>

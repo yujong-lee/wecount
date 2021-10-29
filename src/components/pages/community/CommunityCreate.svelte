@@ -56,6 +56,8 @@
   import Carousel from './Carousel.svelte';
   import InputBox from './InputBox.svelte';
   import {createCommunity} from '../../../services/communityService';
+  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../../utils/colors';
+  import {replace} from 'svelte-spa-router';
 
   let loading = false;
 
@@ -72,7 +74,7 @@
       description: 'PREMIUM ACCOUNT',
       isPublic: true,
     },
-    colors: ['#28DB98', '#72E6FF', '#3A74E7', '#834FF3', '#2A2A2C'],
+    colors: [GREEN, SKY_BLUE, NAVY, PURPLE, BLACK],
   };
 
   const publicOptions = [$_('Community.public'), $_('Community.private')];
@@ -111,7 +113,7 @@
           selectedPublicOption === $_('Community.public') ? true : false,
       });
 
-      console.log('community', community);
+      if (community) await replace(`/community/${community.id}`);
     } finally {
       isSubmitOnFlight = false;
     }
