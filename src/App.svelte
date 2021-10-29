@@ -87,15 +87,14 @@
   import 'dayjs/locale/ko';
   import dayjs from 'dayjs';
 
-  const {theme} = getContext<ThemeStore>('theme');
+  const {changeThemeType} = getContext<ThemeStore>('theme');
 
   // dayjs.locale('ko'); // TODO
   dayjs.extend(relativeTime);
 
   const toggleTheme = () => {
     document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === '.')
-        window.document.body.classList.toggle('dark-mode');
+      if (event.ctrlKey && event.key === '.') changeThemeType();
     });
   };
 
