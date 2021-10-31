@@ -92,6 +92,11 @@
   const selectCommunity = (id: string) => {
     const path = (subMenus[0].path = `/community/${id}`);
 
+    subMenus[1].path = `/community/${id}/feed`;
+    subMenus[2].path = `/community/${id}/settings`;
+
+    communityId = id;
+
     seletedSubMenuPath = path;
     selectSubMenu(path);
     onSelectMenu(path);
