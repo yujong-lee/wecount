@@ -48,6 +48,16 @@
     font-weight: bold;
   }
 
+  :global(.heading4) {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  :global(.heading5) {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   :global(.body1) {
     font-size: 20px;
   }
@@ -67,10 +77,6 @@
   :global(.body5) {
     font-size: 10px;
   }
-
-  main {
-    display: grid;
-  }
 </style>
 
 <script lang="ts">
@@ -81,27 +87,31 @@
 
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
-  import Main from './components/navigations/Main';
+  import Main from './components/navigations/index.svelte';
   import {upsertUser} from './services/userService';
   import relativeTime from 'dayjs/plugin/relativeTime';
   import 'dayjs/locale/ko';
   import dayjs from 'dayjs';
 
-  const {changeThemeType} = getContext<ThemeStore>('theme');
+  const {changeThemeType} = getContext<ThemeStore>('svelte-theme');
 
   // dayjs.locale('ko'); // TODO
   dayjs.extend(relativeTime);
 
   const toggleTheme = () => {
     document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === '.') changeThemeType();
+      if (event.ctrlKey && event.key === '.') {
+        changeThemeType();
+      }
     });
   };
 
   supabase.auth.onAuthStateChange((e, session) => {
-    if (e === 'SIGNED_OUT') user.set(null);
+    if (e === 'SIGNED_OUT') {
+      user.set(null);
+    }
 
-    if (e === 'SIGNED_IN' && session)
+    if (e === 'SIGNED_IN' && session) {
       (async () => {
         await upsertUser(session.user);
 
@@ -118,11 +128,10 @@
           name: data?.name || '',
         });
       })().catch((err) => console.log(err));
+    }
   });
 
   toggleTheme();
 </script>
 
-<main>
-  <Main />
-</main>
+<Main />

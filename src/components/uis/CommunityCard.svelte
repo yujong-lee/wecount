@@ -1,23 +1,20 @@
 <style lang="postcss">
   .card {
-    background-color: var(selectedColor);
-    width: 330px;
-    height: 210px;
+    background-color: var(--color);
+    border: 1px solid var(--border);
     box-sizing: border-box;
-    border-radius: 24px;
-    box-shadow: 0px 4px 10px var(--disabled), inset 0px 0px 2px var(--paper);
-    padding: 28px 24px;
+    border-radius: 16px;
+    box-shadow: 0px 24px 42px var(--box-shadow12);
+    padding: 26px;
+    max-height: 212px;
+    width: 330px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
-  .profile-img-layout {
-    position: relative;
-    display: inline-block;
-    margin-right: 9px;
-  }
-  .profile-img {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-  }
+
   .crown {
     position: absolute;
     top: -2px;
@@ -30,97 +27,110 @@
     justify-content: center;
     align-items: center;
   }
-  .community-layout {
+
+  .title {
     margin-bottom: 13px;
-  }
-  .community-name {
     color: white;
-    font-size: 1.2rem;
+
+    .body1 {
+      display: flex;
+    }
   }
-  .coummunity-name-layout {
-    display: flex;
-  }
-  .community-description {
+  .description {
     color: #f0f5ff;
-    text-transform: uppercase;
   }
-  .user-layout {
+
+  .profile {
     display: flex;
     align-items: center;
+
+    .image {
+      position: relative;
+      display: inline-block;
+      margin-right: 9px;
+    }
   }
+
   .user-role {
     color: #f3f4f5;
     font-size: 0.7rem;
   }
+
   .user-name {
     color: white;
     font-size: 0.8rem;
   }
+
   .lock {
     display: flex;
     align-items: center;
     margin-right: 2px;
   }
-  .balance-layout {
-    text-align: right;
-    margin-top: 7px;
-  }
-  .balance-title {
-    font-size: 14px;
-    color: #f0f5ff;
-  }
+
   .balance {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 24px;
+    margin-top: 8px;
+    align-self: flex-end;
+    color: white;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    .body3 {
+      align-self: flex-end;
+    }
   }
 </style>
 
 <script lang="ts">
   import {SvgCrown, SvgLock} from '../../utils/Icon';
-  import type {CommunityType, UserType} from '../../types';
   import {_} from 'svelte-i18n';
-  import {showAmount} from '../../utils/functions';
+  import {decoPrice} from '../../utils/functions';
+  import UserImage from './UserImage.svelte';
 
-  export let community: CommunityType;
-  export let user: UserType;
+  export let name = '';
+  export let description = '';
+  export let profileURL = '';
+  export let isPublic = true;
   export let balance: number | undefined = undefined;
-  export let style: string | undefined = undefined;
+  export let currency = '';
+  export let style = '';
 </script>
 
 <div class="card" style={style}>
-  <div class="community-layout">
-    <div class="coummunity-name-layout">
-      {#if !community.isPublic}
+  <div class="title">
+    <div class="body1">
+      {#if !isPublic}
         <div class="lock">
           <SvgLock />
         </div>
       {/if}
-      <div class="community-name">
-        {community.name}
-      </div>
+      {name}
     </div>
-    <div class="community-description">
-      {community.description}
+    <div class="description">
+      {description}
     </div>
   </div>
-  <div class="user-layout">
-    <div class="profile-img-layout">
-      <img class="profile-img" src={user.imageUrl} alt={user.name} />
+  <div class="profile">
+    <div class="image">
+      <UserImage src={profileURL} alt={name} />
       <div class="crown">
         <SvgCrown />
       </div>
     </div>
     <div>
-      <div class="user-role">{user.role}</div>
-      <div class="user-name">{user.name}</div>
+      <div class="user-role">{$_('owner')}</div>
+      <div class="user-name">{name}</div>
     </div>
   </div>
   {#if balance}
-    <div class="balance-layout">
-      <div class="balance-title">{$_('Dashboard.current_balance')}</div>
-      <div class="balance">
-        {showAmount(balance, community.currency)}
+    <div class="balance">
+      <div class="body3">{$_('current_balance')}</div>
+      <div class="heading3">
+        {decoPrice({
+          price: balance,
+          currency,
+        })}
       </div>
     </div>
   {/if}

@@ -6,7 +6,12 @@
       }
     }
 
-    background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
+    background: linear-gradient(
+      136.71deg,
+      var(--auth-background-light) 21.32%,
+      var(--auth-background-dark) 96.51%
+    );
+
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 
@@ -137,7 +142,7 @@
   let passwordConfirm: string;
 
   onMount(async () => {
-    if ($user) await replace('/');
+    if ($user) {await replace('/');}
   });
 
   const onChangeEmail = (e: CustomEvent) => {
@@ -161,7 +166,7 @@
       loading = true;
       const error = await callback();
 
-      if (error) throw error;
+      if (error) {throw error;}
     } catch (error: any) {
       alert(error.error_description || error.message);
     } finally {

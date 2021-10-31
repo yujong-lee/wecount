@@ -6,7 +6,11 @@
   }
 
   .container {
-    background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
+    background: linear-gradient(
+      136.71deg,
+      var(--auth-background-light) 21.32%,
+      var(--auth-background-dark) 96.51%
+    );
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 
@@ -69,7 +73,7 @@
   import {onMount} from 'svelte';
 
   user.subscribe((isLoggedIn) => {
-    if (isLoggedIn) replace('/').catch((err) => console.log(err));
+    if (isLoggedIn) {replace('/').catch((err) => console.log(err));}
   });
 
   let loading = false;
@@ -91,7 +95,7 @@
   `;
 
   onMount(async () => {
-    if ($user) await replace('/');
+    if ($user) {await replace('/');}
   });
 
   const onChangeEmail = (e: CustomEvent) => {
@@ -110,7 +114,7 @@
         password,
       });
 
-      if (error) throw error;
+      if (error) {throw error;}
     } catch (error) {
       console.log(error);
     } finally {
@@ -131,7 +135,7 @@
         window.close();
       }
 
-      if (error) throw error;
+      if (error) {throw error;}
     } catch (error) {
       console.log(error);
     } finally {

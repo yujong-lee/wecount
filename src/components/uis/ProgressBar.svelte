@@ -1,48 +1,24 @@
 <style lang="postcss">
-  .progress-bar {
-    position: relative;
-    width: 318px;
+  .container {
+    width: 100%;
     height: 10px;
-    background: var(--shading);
-    border-radius: 10000px;
+    background-color: var(--disabled);
+    border-radius: 8px;
   }
 
-  .completed {
-    position: absolute;
-    width: var(completedPercent);
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    background-color: var(--green70);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
-    animation: completed-animation 0.3s ease-in-out;
-    animation-fill-mode: both;
-    border-radius: 10000px;
-  }
-
-  @keyframes completed-animation {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: var(completedPercent);
-    }
+  .bar {
+    background-color: var(--primary);
+    height: 10px;
+    border-radius: 8px;
+    width: var(--percentage);
+    transition: width 1s ease;
   }
 </style>
 
 <script lang="ts">
-  export let completed: number;
-  export let progressBarStyle: string | undefined = undefined;
-  export let completedStyle: string | undefined = undefined;
-
-  const completedPercent = String(completed) + '%';
+  export let percentage = 0;
 </script>
 
-<div class="progress-bar" style={progressBarStyle}>
-  <div
-    class="completed"
-    style={`width: ${completedPercent}; ${
-      completedStyle ? completedStyle : ''
-    }`}
-  />
+<div class="container">
+  <div class="bar" style="--percentage: {percentage}%;" />
 </div>

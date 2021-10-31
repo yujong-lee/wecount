@@ -17,7 +17,7 @@
   import EditText from '../uis/EditText.svelte';
   import {
     createCommunity,
-    getMyCommunites,
+    getMycommunities,
     updateCommunity,
   } from '../../services/communityService';
   import {user} from '../../stores/sessionStore';
@@ -31,7 +31,7 @@
   };
 
   const requestCreateCommunity = async () => {
-    if (!$user) return;
+    if (!$user) {return;}
 
     const community = await createCommunity($user.id, {
       name: communityName,
@@ -45,17 +45,17 @@
   };
 
   const requestGetMyCommunities = async () => {
-    if (!$user) return;
+    if (!$user) {return;}
 
-    const communities = await getMyCommunites($user.id);
+    const communities = await getMycommunities($user.id);
 
     console.log('communities', communities);
 
-    if (communities) community = communities?.[0];
+    if (communities) {community = communities?.[0];}
   };
 
   const requestUpdateCommunity = async () => {
-    if (!$user) return;
+    if (!$user) {return;}
 
     const updated = await updateCommunity({
       id: 'f3c4d2ab-a85d-41f1-8cd7-52b600d1e449',
