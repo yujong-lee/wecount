@@ -8,13 +8,20 @@
     align-items: center;
 
     @media (--mobile) {
-      margin-bottom: 0px;
+      background-color: var(--paper);
     }
   }
+
   .greeting {
+    padding: 40px 0;
     text-align: center;
     margin-bottom: 70px;
+
+    @media (--mobile) {
+      margin-bottom: 0;
+    }
   }
+
   .card-wrapper {
     flex-wrap: wrap;
     gap: 24px;

@@ -2,10 +2,6 @@
   .container {
     display: flex;
     justify-content: center;
-
-    @media (--mobile) {
-      padding: 0px 20px;
-    }
   }
 
   .wrap {
@@ -17,6 +13,7 @@
   }
 
   .title {
+    margin-left: 24px;
     margin-top: 40px;
     margin-bottom: 22px;
   }
@@ -59,7 +56,7 @@
     box-sizing: border-box;
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
-    padding: 20px;
+    /* padding: 20px; */
     width: 100%;
 
     @media (--mobile) {
@@ -133,7 +130,9 @@
           selectedPublicOption === $_('Community.public') ? true : false,
       });
 
-      if (community) {await replace(`/community/${community.id}`);}
+      if (community) {
+        await replace(`/community/${community.id}`);
+      }
     } finally {
       isSubmitOnFlight = false;
     }
@@ -213,7 +212,7 @@
       <Button
         on:click={() => {}}
         primary
-        style={'width: 304px;'}
+        style={'width: 292px;'}
         type="submit"
         disabled={loading}
         loading={loading}

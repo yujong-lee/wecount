@@ -9,18 +9,21 @@
       width: 100%;
     }
   }
+
   .wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 210px;
   }
+
   .card-layout {
     position: relative;
     height: 100%;
     flex-grow: 1;
     margin: 15.5px;
   }
+
   .center-card {
     position: absolute;
     top: 50%;
@@ -29,6 +32,7 @@
     height: 100%;
     z-index: 3;
   }
+
   .left-card,
   .right-card {
     @media (--mobile) {
@@ -64,28 +68,33 @@
       background-color: var(--gray90);
     }
   }
+
   .arrow-right {
     @media (--mobile) {
       padding-left: 5px;
     }
   }
+
   .arrow-left {
     @media (--mobile) {
       padding-right: 5px;
     }
   }
+
   .dot-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 15px;
   }
+
   .dot {
     background-color: gray;
     width: 16px;
     height: 16px;
     border-radius: 50%;
   }
+
   .hidden {
     visibility: hidden;
   }
@@ -151,7 +160,7 @@
               name="dooboolab"
               currency="KRW"
               description="dooboolab card"
-              style="height:100%; width: 330px;"
+              style="height:100%; width: 300px;"
             />
           </div>
         {/if}

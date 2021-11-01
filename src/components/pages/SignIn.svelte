@@ -44,7 +44,10 @@
       align-items: center;
 
       @media (--mobile) {
-        width: 100%;
+        max-height: 100%;
+        height: 100%;
+        flex: 1;
+        align-self: stretch;
         border-radius: 0;
         padding: 0;
       }
@@ -57,6 +60,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        a:first-child {
+          text-align: left;
+        }
       }
     }
   }
@@ -73,7 +80,9 @@
   import {onMount} from 'svelte';
 
   user.subscribe((isLoggedIn) => {
-    if (isLoggedIn) {replace('/').catch((err) => console.log(err));}
+    if (isLoggedIn) {
+      replace('/').catch((err) => console.log(err));
+    }
   });
 
   let loading = false;
@@ -95,7 +104,9 @@
   `;
 
   onMount(async () => {
-    if ($user) {await replace('/');}
+    if ($user) {
+      await replace('/');
+    }
   });
 
   const onChangeEmail = (e: CustomEvent) => {
@@ -114,7 +125,9 @@
         password,
       });
 
-      if (error) {throw error;}
+      if (error) {
+        throw error;
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -135,7 +148,9 @@
         window.close();
       }
 
-      if (error) {throw error;}
+      if (error) {
+        throw error;
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -168,7 +183,7 @@
     </EditText>
     <div class="container-options">
       <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
-      <a class="link" href="/#/sign_up">{$_('SignIn.forgot_your_password')}?</a>
+      <a class="link" href="/#/find_pw">{$_('SignIn.forgot_your_password')}?</a>
     </div>
     <Button
       on:click={handleLogin}

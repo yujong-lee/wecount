@@ -49,6 +49,7 @@
         padding: 80px 24px;
 
         flex: 1;
+        align-self: stretch;
       }
 
       .header {
@@ -70,6 +71,10 @@
 
         .label {
           width: 160px;
+
+          @media (--mobile) {
+            display: none;
+          }
         }
       }
 
@@ -89,6 +94,7 @@
           justify-content: center;
           align-items: center;
         }
+
         .content {
           margin-left: 2px;
           font-style: normal;
