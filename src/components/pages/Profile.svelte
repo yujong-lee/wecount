@@ -17,20 +17,24 @@
       justify-content: center;
       align-items: center;
 
-      button {
-        cursor: pointer;
+      @media (--mobile) {
+        width: 100%;
+        padding: 0;
       }
 
       div {
-        width: 100%;
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: column;
 
         label {
-          width: 100%;
-          margin-bottom: 3px;
+          margin: 0 20px 3px 20px;
         }
 
         input {
-          width: 100%;
+          align-self: stretch;
+          margin: 0 20px;
         }
       }
 
@@ -51,9 +55,14 @@
           background-size: 100% 100%;
         }
 
+        input {
+          width: 100%;
+          margin: 0;
+        }
+
         input[type='file'] {
           position: absolute;
-          bottom: 0;
+          bottom: -2px;
           outline: none;
           color: transparent;
           width: 100%;
@@ -83,20 +92,6 @@
           }
         }
       }
-
-      input[type='submit'] {
-        background-color: var(--positive);
-        cursor: pointer;
-        width: 100%;
-        color: white;
-        font-size: 16px;
-      }
-
-      .btn-signout {
-        background-color: var(--negative);
-        width: 100%;
-        font-size: 16px;
-      }
     }
   }
 </style>
@@ -118,7 +113,9 @@
   let avatarUrl = '';
 
   onMount(async () => {
-    if (!$user) {await replace('/');}
+    if (!$user) {
+      await replace('/');
+    }
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -145,7 +142,9 @@
     try {
       let image = e.target.files?.[0];
 
-      if (!image) {return;}
+      if (!image) {
+        return;
+      }
 
       loading = true;
 
@@ -177,7 +176,9 @@
         })
         .match({id: $user?.id});
 
-      if (error) {throw error;}
+      if (error) {
+        throw error;
+      }
 
       if ($user) {
         $user.name = name;
@@ -196,7 +197,9 @@
       loading = true;
       let {error} = await supabase.auth.signOut();
 
-      if (error) {throw error;}
+      if (error) {
+        throw error;
+      }
 
       $user = null;
       await replace('/');
@@ -233,28 +236,30 @@
         <label for="name">{$_('name')}</label>
         <input id="name" type="text" bind:value={name} />
       </div>
-      <Button
-        positive
-        style="margin-top: 16px; width: 100%;"
-        type="submit"
-        disabled={loading}
-        loading={loading}
-      >
-        <div class="text" style="color: white;">
-          {loading ? $_('loading') : $_('update')}
-        </div>
-      </Button>
-      <Button
-        on:click={signOut}
-        negative
-        style="margin-top: 12px; width: 100%;"
-        disabled={loading}
-        loading={loading}
-      >
-        <div class="text" style="color: white;">
-          {$_('sign_out')}
-        </div>
-      </Button>
+      <div style="margin: 0 20px">
+        <Button
+          positive
+          style="margin-top: 16px; width: 100%;"
+          type="submit"
+          disabled={loading}
+          loading={loading}
+        >
+          <div class="text" style="color: white;">
+            {loading ? $_('loading') : $_('update')}
+          </div>
+        </Button>
+        <Button
+          on:click={signOut}
+          negative
+          style="margin-top: 12px; width: 100%;"
+          disabled={loading}
+          loading={loading}
+        >
+          <div class="text" style="color: white;">
+            {$_('sign_out')}
+          </div>
+        </Button>
+      </div>
     </form>
   {/if}
 </div>
