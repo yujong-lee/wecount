@@ -12,8 +12,8 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 72px 216px 1fr;
     grid-template-areas:
-      'title  title'
-      'graph  graph'
+      'title title'
+      'graph graph'
       'statistics statistics';
 
     @media (--mobile) {

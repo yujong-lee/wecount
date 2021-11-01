@@ -50,39 +50,6 @@
     "enter_community": "커뮤니티 입장",
     "enter_community_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
   },
-  "temp": {
-    "title": "템플릿"
-  },
-  "Member": {
-    "title": "멤버관리",
-    "name": "이름",
-    "permission": "권한",
-    "role": "역할",
-    "role_representative": "대표관리자",
-    "role_all": "전체",
-    "accept_all": "전부 수락하기"
-  },
-  "Feed": {
-    "create_feed": "피드 작성하기",
-    "title": "사용처",
-    "spending": "지출",
-    "income": "수입",
-    "FeedCreatePopup": {
-      "category": "구분",
-      "income": "수입",
-      "spending": "지출",
-      "price": "금액",
-      "price_hint": "금액을 입력하세요.",
-      "title": "수입처",
-      "title_hint": "수입처를 알려주세요.",
-      "content": "내용",
-      "content_hint": "내용을 작성하세요",
-      "image": "사진",
-      "image_hint": "최대 7장 첨부 가능",
-      "cancel": "취소",
-      "submit": "확인"
-    }
-  },
   "Drawer": {
     "dashboard": "대시보드",
     "feeds": "피드",
@@ -102,25 +69,5 @@
   },
   "Header": {
     "explore_community": "커뮤니티를 탐색해보세요!"
-  },
-  "Dashboard": {
-    "hello": "안녕하세요.",
-    "manage_members": "멤버 관리",
-    "remaining_amount": "남은 금액",
-    "account_book_management": "가계부 관리",
-    "last": "최근",
-    "week": "주",
-    "month": "월",
-    "sponsoring": "후원하기",
-    "usage_details": "사용내역",
-    "more": "더보기",
-    "spending": "지출",
-    "categories": "카테고리",
-    "date": "날짜",
-    "amount": "사용 금액",
-    "expenditure_statistics": "지출통계",
-    "salary": "급여",
-    "parcel_service": "택배",
-    "delivery": "배달"
   }
 }

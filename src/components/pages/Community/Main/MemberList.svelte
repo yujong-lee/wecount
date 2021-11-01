@@ -12,7 +12,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 72px 1fr;
     grid-template-areas:
-      'title  title'
+      'title title'
       'member member';
 
     @media (--mobile) {

@@ -151,7 +151,7 @@
               name="dooboolab"
               currency="KRW"
               description="dooboolab card"
-              style="height:100%;"
+              style="height:100%; width: 330px;"
             />
           </div>
         {/if}

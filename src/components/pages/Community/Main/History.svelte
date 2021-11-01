@@ -12,7 +12,7 @@
     grid-template-columns: 330px 1fr;
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas:
-      'title  title'
+      'title title'
       'history history';
 
     @media (--mobile) {

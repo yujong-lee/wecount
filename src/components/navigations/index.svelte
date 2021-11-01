@@ -8,7 +8,7 @@
   }
 
   @media (--mobile) {
-    .container {
+    main {
     }
   }
 </style>

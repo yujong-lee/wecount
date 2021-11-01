@@ -12,10 +12,10 @@
     grid-template-columns: 330px 1fr;
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas:
-      'title  title'
-      'card   usage'
-      'card   usage'
-      'card   usage'
+      'title title'
+      'card usage'
+      'card usage'
+      'card usage'
       'amount sponsor';
 
     @media (--mobile) {
@@ -134,7 +134,9 @@
   };
 
   const clickSponsoring = () => {
-    if (percentage >= 100) {return;}
+    if (percentage >= 100) {
+      return;
+    }
 
     percentage += 10;
   };
@@ -150,7 +152,7 @@
   </div>
   <CommunityCard
     --color={GREEN}
-    style="grid-area: card; width: 330px;"
+    style="grid-area: card;"
     name="dooboolab"
     currency="KRW"
     description="dooboolab card"

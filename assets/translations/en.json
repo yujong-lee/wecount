@@ -41,45 +41,12 @@
     "missing_inputs": "Some information is missing. Please fill all information."
   },
   "Onboarding": {
-    "hello": "Hellow there. 🙌",
-    "welcome": "Welcome to Wecount.",
+    "hello": "Hello there. 🙌",
+    "welcome": "Welcome to WeCount.",
     "create_community": "Create community",
     "create_community_desc": "Create and manage account for community",
     "enter_community": "Enter the Community",
     "enter_community_desc": "Explore the community and support it through sponsorship"
-  },
-  "Temp": {
-    "title": "Template"
-  },
-  "Member": {
-    "title": "Members",
-    "name": "Name",
-    "permission": "Permission",
-    "role": "Role",
-    "role_representative": "Representative",
-    "role_all": "All",
-    "accept_all": "Accept all"
-  },
-  "Feed": {
-    "create_feed": "Create Feed",
-    "title": "Title",
-    "spending": "Spending",
-    "income": "Income",
-    "FeedCreatePopup": {
-      "category": "Category",
-      "income": "Income",
-      "spending": "Spending",
-      "price": "Price",
-      "price_hint": "Write price",
-      "title": "Title",
-      "title_hint": "Write title",
-      "content": "Contnet",
-      "content_hint": "Write content",
-      "image": "image",
-      "image_hint": "Up to 7 images can be add",
-      "cancel": "Cancel",
-      "submit": "Submit"
-    }
   },
   "Drawer": {
     "dashboard": "Dashboard",
@@ -100,25 +67,5 @@
   },
   "Header": {
     "explore_community": "Explore the community!"
-  },
-  "Dashboard": {
-    "hello": "Hello.",
-    "manage_members": "Manage members",
-    "remaining_amount": "Remaining amount",
-    "account_book_management": "Account book management",
-    "last": "Last",
-    "week": "Week",
-    "month": "Month",
-    "sponsoring": "Sponsoring",
-    "usage_details": "Usage details",
-    "more": "More",
-    "spending": "Spending",
-    "categories": "Categories",
-    "date": "Date",
-    "amount": "Amount",
-    "expenditure_statistics": "Expenditure Statistics",
-    "salary": "Salary",
-    "parcel_service": "Parcel service",
-    "delivery": "Delivery"
   }
 }

@@ -13,6 +13,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+
+    @media (--mobile) {
+      width: 100%;
+    }
   }
 
   .crown {

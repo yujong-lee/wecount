@@ -29,14 +29,6 @@
       max-width: 640px;
       align-self: center;
 
-      @media (--mobile) {
-        max-height: none;
-        border-radius: 0;
-        padding: 80px 24px;
-
-        flex: 1;
-      }
-
       display: grid;
       grid-template-areas:
         ' . . . '
@@ -52,9 +44,11 @@
       justify-content: stretch;
 
       @media (--mobile) {
-        grid-template-columns: none;
-        grid-template-rows: min-content;
-        align-content: stretch;
+        max-height: none;
+        border-radius: 0;
+        padding: 80px 24px;
+
+        flex: 1;
       }
 
       .header {
@@ -142,7 +136,9 @@
   let passwordConfirm: string;
 
   onMount(async () => {
-    if ($user) {await replace('/');}
+    if ($user) {
+      await replace('/');
+    }
   });
 
   const onChangeEmail = (e: CustomEvent) => {
@@ -166,7 +162,9 @@
       loading = true;
       const error = await callback();
 
-      if (error) {throw error;}
+      if (error) {
+        throw error;
+      }
     } catch (error: any) {
       alert(error.error_description || error.message);
     } finally {
@@ -183,9 +181,10 @@
       return;
     }
 
-    await handleAuthException(async () => {
+    await handleAuthException(async (): Promise<Error | null> => {
       const {error} = await supabase.auth.signUp({email, password});
 
+      // @ts-ignore
       return error;
     });
   };
