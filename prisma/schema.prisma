@@ -8,14 +8,14 @@ datasource db {
 }
 
 model User {
-  id                   String    @id @default(cuid()) @db.Uuid
+  id                   String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   aud                  String    @db.VarChar(255)
   confirmation_sent_at DateTime?
   recovery_sent_at     DateTime?
   email                String?   @db.VarChar(255)
   phone                String?   @db.VarChar(255)
-  avatarUrl           String?   @db.VarChar(255)
-  avatarUrlThumb     String?   @db.VarChar(255)
+  avatarUrl            String?   @db.VarChar(255)
+  avatarUrlThumb       String?   @db.VarChar(255)
   displayName          String?   @db.VarChar(255)
   name                 String?   @db.VarChar(255)
 
@@ -36,7 +36,7 @@ model User {
 }
 
 model Community {
-  id          String   @id @default(cuid()) @db.Uuid
+  id          String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   isPublic    Boolean?
   name        String   @db.VarChar(50)
   description String
@@ -94,7 +94,7 @@ enum SubscriptionPeriodUnit {
 }
 
 model Topic {
-  id      String  @id @default(cuid()) @db.Uuid
+  id      String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   name    String  @db.VarChar(255)
   iconUrl String?
 
@@ -105,7 +105,7 @@ model Topic {
 }
 
 model Deposit {
-  id                     String                  @id @default(cuid()) @db.Uuid
+  id                     String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   depositType            DepositType             @default(sponsoring)
   paymentType            PaymentType             @default(onetime)
   title                  String                  @db.VarChar(255)
@@ -128,7 +128,7 @@ model Deposit {
 }
 
 model Category {
-  id          String  @id @default(cuid()) @db.Uuid
+  id          String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   color       String  @default("#AAAAAA")
   name        String  @db.VarChar(255)
   iconUrl     String? @db.VarChar(1024)
@@ -150,7 +150,7 @@ enum CardType {
 }
 
 model CreditCard {
-  id                 String    @id @default(cuid()) @db.Uuid
+  id                 String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   cardNumber         String?   @db.VarChar(50)
   validDateMonth     String?   @db.VarChar(4)
   validDateYear      String?   @db.VarChar(4)
@@ -170,7 +170,7 @@ model CreditCard {
 }
 
 model Feed {
-  id             String    @id @default(cuid()) @db.Uuid
+  id             String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   isPublic       Boolean   @default(true)
   title          String    @db.VarChar(255)
   date           DateTime?
@@ -215,7 +215,7 @@ enum MessageType {
 }
 
 model Reply {
-  id          String      @id @default(cuid()) @db.Uuid
+  id          String      @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   messageType MessageType @default(text)
   photoURL    String?     @db.VarChar(1024)
   movieURL    String?     @db.VarChar(1024)
@@ -235,7 +235,7 @@ model Reply {
 }
 
 model Reaction {
-  id    String @id @default(cuid()) @db.Uuid
+  id    String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   emoji String @default("😀")
 
   feedId  String? @db.Uuid
