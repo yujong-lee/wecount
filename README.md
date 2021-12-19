@@ -10,7 +10,7 @@
 - [ESLint & Prettier](https://www.rockyourcode.com/prettier-and-es-lint-setup-for-svelte-js)
 - [Svelte i18n](https://github.com/kaisermann/svelte-i18n)
 - [Jest](https://jestjs.io)
+- [Svelte Theme](https://github.com/svelte-seoul/svelte-theme)
 
 ## Samples
-- [Theming](https://github.com/hyochan/svelte-typescript-template/pull/4)
 - [Store](https://github.com/hyochan/svelte-typescript-template/pull/5)
