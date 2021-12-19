@@ -13,21 +13,20 @@
       border: 1px solid var(--border) !important;
       box-sizing: border-box;
       border-radius: 4px;
+      grid-auto-flow: column;
 
       display: grid;
-      grid-template-columns: min-content 1fr min-content;
       align-items: center;
     }
 
     input {
+      background-color: var(--background-color);
       color: var(--text);
       caret-color: var(--text);
       text-transform: none;
       font-size: var(--font-size, 14px);
       padding: 12px 16px;
       font-family: inherit;
-      background-color: transparent;
-      background: transparent;
       border: none;
 
       &:focus {

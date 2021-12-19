@@ -67,6 +67,7 @@
       .input-container {
         display: flex;
         flex-direction: row;
+
         .label {
           width: 160px;
           @media (--mobile) {
@@ -191,7 +192,7 @@
       <div class="input-container">
         <p class="label" style="height: 40px;">{$_('email')}</p>
         <EditText
-          containerStyle="flex: 1; align-self: stretch;"
+          containerStyle="flex: 1;"
           inputStyle="font-size: 14px;"
           type="email"
           placeholder={$_('auth.sign-up.email_hint')}

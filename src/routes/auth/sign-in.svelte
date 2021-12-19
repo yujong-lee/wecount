@@ -65,6 +65,10 @@
           text-align: left;
         }
       }
+
+      :global(.input-wrapper) {
+        grid-template-columns: min-content 1fr;
+      }
     }
   }
 </style>
