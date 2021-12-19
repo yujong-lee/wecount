@@ -6,6 +6,7 @@
     background-color: var(--background);
     border-radius: 30px;
     padding: 12px 18px;
+
     display: grid;
     row-gap: 8px;
     column-gap: 20px;
@@ -28,10 +29,17 @@
   }
   .content {
     grid-area: content;
-    display: grid;
+    justify-items: start;
     align-content: start;
+
+    display: grid;
+
     .heading5 {
       margin: 2px 0;
+    }
+
+    .body2 {
+      margin-top: 4px;
     }
   }
   .menu {
@@ -73,6 +81,7 @@
   import type {definitions} from '../types/supabase';
   import {_} from 'svelte-i18n';
   import Button from './button.svelte';
+  import {goto, url} from '@roxi/routify';
 
   export let community: definitions['Community'];
   const communityInitial: string[1] = community.name[0];
@@ -102,7 +111,7 @@
         <span>$11,592.06</span>
       </p>
       <p class="body3">
-        {$_('current_balance')}<br />
+        {$_('balance')}<br />
         <span>$3,155</span>
       </p>
     </div>
@@ -110,8 +119,8 @@
       primary
       class="button"
       style="width: 100px;"
-      on:click={async () => {
-        // await push(`/community/${community.id}`);
+      on:click={() => {
+        $goto($url('/community/[id]', {id: community.id}));
       }}
     >
       <div class="body3">{$_('more')}</div>

@@ -130,7 +130,7 @@
   </div>
   {#if balance}
     <div class="balance">
-      <div class="body3">{$_('current_balance')}</div>
+      <div class="body3">{$_('balance')}</div>
       <div class="heading3">
         {decoPrice({
           price: balance,

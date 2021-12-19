@@ -22,7 +22,7 @@
   "statistics": "Statistics",
   "sponsors": "Sponsors",
   "total_raised": "Total Raised",
-  "current_balance": "Current Balance",
+  "balance": "Balance",
   "auth": {
     "sign-in": {
       "email_hint": "Write your email address",

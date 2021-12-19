@@ -22,7 +22,7 @@
   "statistics": "지출 통계",
   "sponsors": "스폰서",
   "total_raised": "총 모금",
-  "current_balance": "현재 잔액",
+  "balance": "잔액",
   "auth": {
     "sign-in": {
       "email_hint": "이메일을 입력하세요",
