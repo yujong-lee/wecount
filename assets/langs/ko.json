@@ -1,0 +1,78 @@
+{
+  "app_name": "WE카운트",
+  "loading": "로딩중",
+  "email": "이메일",
+  "name": "이름",
+  "display_name": "별칭",
+  "image": "이미지",
+  "pw": "비밀번호",
+  "sign_out": "로그아웃",
+  "login": "로그인",
+  "sign_in": "로그인하기",
+  "update": "수정",
+  "member": "멤버",
+  "owner": "주인",
+  "sponsor": "후원하기",
+  "manage": "관리",
+  "remaining_amount": "남은 금액",
+  "recent_history": "최근 내역",
+  "usage_history": "사용 내역",
+  "more": "더보기",
+  "unnamed": "이름없음",
+  "statistics": "지출 통계",
+  "sponsors": "스폰서",
+  "total_raised": "총 모금",
+  "current_balance": "현재 잔액",
+  "auth": {
+    "sign-in": {
+      "email_hint": "이메일을 입력하세요",
+      "pw_hint": "비밀번호를 입력하세요",
+      "forgot_your_password": "비밀번호를 잊으셨나요",
+      "do_not_have_account": "계정이 없으신가요",
+      "sign_in_with_google": "Google 계정으로 로그인",
+      "sign_in_with_facebook": "Facebook 계정으로 로그인",
+      "look_around": "둘러보기"
+    },
+    "sign-up": {
+      "title": "회원가입",
+      "email": "이메일",
+      "email_hint": "이메일 주소를 입력하세요",
+      "pw": "비밀번호",
+      "pw_hint": "비밀번호를 입력하세요",
+      "pw_confirm": "비밀번호 확인",
+      "pw_confirm_hint": "비밀번호를 한번 더 입력하세요",
+      "terms_and_agreement": "위카운트&nbsp; <a href=\"https://legacy.dooboolab.com/termsofservice\">이용약관</a> 및&nbsp; <a href=\"https://legacy.dooboolab.com/privacyandpolicy\">개인정보취급방침</a>에 모두 동의합니다.",
+      "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
+    }
+  },
+  "onboard": {
+    "hello": "안녕하세요. 🙌",
+    "welcome": "위카운트에 오신 것을 환영합니다.",
+    "create_community": "커뮤니티 생성",
+    "create_community_desc": "커뮤니티를 생성하고 자금을 관리해보세요.",
+    "see_communities": "커뮤니티 둘러보기",
+    "see_communities_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
+  },
+  "community": {
+    "title": "커뮤니티",
+    "create_community": "커뮤니티를 생성해요",
+    "type": "종류",
+    "community_name": "커뮤니티 이름",
+    "community_description": "커뮤니티 소개",
+    "community_representative_currency": "커뮤니티 대표 환 선택",
+    "write_down_the_community_name": "커뮤니티 이름을 적어주세요",
+    "introduce_the_community": "커뮤니티를 소개 해주세요",
+    "create_community_button": "커뮤니티 생성하기",
+    "public": "공개",
+    "private": "비공개",
+    "sidebar": {
+      "dashboard": "대시보드",
+      "feeds": "피드",
+      "settings": "설정"
+    }
+  },
+  "Community": {},
+  "header": {
+    "explore_community": "커뮤니티를 탐색해보세요!"
+  }
+}

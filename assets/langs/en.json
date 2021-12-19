@@ -1,0 +1,75 @@
+{
+  "app_name": "WeCount",
+  "loading": "loading",
+  "email": "Email",
+  "name": "Name",
+  "display_name": "Display Name",
+  "image": "Image",
+  "pw": "Password",
+  "login": "Login",
+  "sign_out": "Sign Out",
+  "sign_in": "Sign In",
+  "update": "Update",
+  "member": "Member",
+  "owner": "Owner",
+  "sponsor": "Sponsor",
+  "manage": "Manage",
+  "remaining_amount": "Remaining amount",
+  "recent_history": "Recent history",
+  "usage_history": "Usage history",
+  "more": "More",
+  "unnamed": "Unnamed",
+  "statistics": "Statistics",
+  "sponsors": "Sponsors",
+  "total_raised": "Total Raised",
+  "current_balance": "Current Balance",
+  "auth": {
+    "sign-in": {
+      "email_hint": "Write your email address",
+      "pw_hint": "Write your password",
+      "forgot_your_password": "Forgot your password",
+      "do_not_have_account": "Don't have an account",
+      "sign_in_with_google": "Sign In with Google",
+      "sign_in_with_facebook": "Sign In with Facebook",
+      "look_around": "Look around"
+    },
+    "sign-up": {
+      "title": "Sign Up",
+      "email_hint": "Write your email address",
+      "pw_hint": "Write your password",
+      "pw_confirm": "Confirm password",
+      "pw_confirm_hint": "Confirm your password",
+      "terms_and_agreement": "I agree with&nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>&nbsp;and&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
+      "missing_inputs": "Some information is missing. Please fill all information."
+    }
+  },
+  "onboard": {
+    "hello": "Hello there. 🙌",
+    "welcome": "Welcome to WeCount.",
+    "create_community": "Create community",
+    "create_community_desc": "Create and manage account for community",
+    "see_communities": "See communities",
+    "see_communities_desc": "Explore the community and support it through sponsorship"
+  },
+  "community": {
+    "title": "Community",
+    "create_community": "Create a community",
+    "type": "Type",
+    "community_name": "Community name",
+    "community_description": "Community description",
+    "community_representative_currency": "Community representative currency",
+    "write_down_the_community_name": "Please write down the community name",
+    "introduce_the_community": "Please introduce the community",
+    "create_community_button": "Create a community",
+    "public": "Public",
+    "private": "Private",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "feeds": "Feeds",
+      "settings": "Settings"
+    }
+  },
+  "header": {
+    "explore_community": "Explore the community!"
+  }
+}

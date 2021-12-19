@@ -6,7 +6,7 @@
 ## Sepecification
 
 - [Svelte Typescript](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_TypeScript)
-- [Svelte SPA Router](https://github.com/ItalyPaleAle/svelte-spa-router)
+- [Routify V3](https://v3.routify.dev)
 - [ESLint & Prettier](https://www.rockyourcode.com/prettier-and-es-lint-setup-for-svelte-js)
 - [Svelte i18n](https://github.com/kaisermann/svelte-i18n)
 - [Jest](https://jestjs.io)

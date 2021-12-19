@@ -1,4 +1,4 @@
-name: CI
+name: CI Web
 
 on:
   push:
@@ -12,18 +12,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
 
-      - name: Install modules
-        run: yarn
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 14.x
+
+      - name: Install packages and build
+        run: |
+          yarn install --immutable
+          yarn build
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLIC_KEY: ${{ secrets.SUPABASE_PUBLIC_KEY }}
+          SUPABASE_PRIVATE_KEY: ${{ secrets.SUPABASE_PRIVATE_KEY }}
+          SUPABASE_JWT_SECRET: ${{ secrets.SUPABASE_JWT_SECRET }}
 
       - name: Check linting
         run: yarn lint
 
       - name: Build typescript
         run: yarn tsc
+
+      - name: Remove tsc build
+        run: rm -rf build
 
       - name: Test
         run: yarn test --coverage
