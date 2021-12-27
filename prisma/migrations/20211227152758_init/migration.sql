@@ -18,7 +18,7 @@ CREATE TYPE "MessageType" AS ENUM ('text', 'photo', 'movie', 'file');
 
 -- CreateTable
 CREATE TABLE "User" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "aud" VARCHAR(255) NOT NULL,
     "confirmation_sent_at" TIMESTAMP(3),
     "recovery_sent_at" TIMESTAMP(3),
@@ -41,12 +41,14 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Community" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "isPublic" BOOLEAN,
     "name" VARCHAR(50) NOT NULL,
     "description" TEXT NOT NULL,
     "currency" VARCHAR(4) NOT NULL,
     "color" TEXT DEFAULT E'#28DB98',
+    "thumbURL" VARCHAR(1024),
+    "ImageURL" VARCHAR(1024),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "deletedAt" TIMESTAMP(3),
@@ -65,7 +67,7 @@ CREATE TABLE "Permission" (
 
 -- CreateTable
 CREATE TABLE "Topic" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "name" VARCHAR(255) NOT NULL,
     "iconUrl" TEXT,
     "communityId" UUID NOT NULL,
@@ -75,7 +77,7 @@ CREATE TABLE "Topic" (
 
 -- CreateTable
 CREATE TABLE "Deposit" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "depositType" "DepositType" NOT NULL DEFAULT E'sponsoring',
     "paymentType" "PaymentType" NOT NULL DEFAULT E'onetime',
     "title" VARCHAR(255) NOT NULL,
@@ -97,7 +99,7 @@ CREATE TABLE "Deposit" (
 
 -- CreateTable
 CREATE TABLE "Category" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "color" TEXT NOT NULL DEFAULT E'#AAAAAA',
     "name" VARCHAR(255) NOT NULL,
     "iconUrl" VARCHAR(1024),
@@ -111,7 +113,7 @@ CREATE TABLE "Category" (
 
 -- CreateTable
 CREATE TABLE "CreditCard" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "cardNumber" VARCHAR(50),
     "validDateMonth" VARCHAR(4),
     "validDateYear" VARCHAR(4),
@@ -130,9 +132,10 @@ CREATE TABLE "CreditCard" (
 
 -- CreateTable
 CREATE TABLE "Feed" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "isPublic" BOOLEAN NOT NULL DEFAULT true,
     "title" VARCHAR(255) NOT NULL,
+    "content" TEXT NOT NULL,
     "date" TIMESTAMP(3),
     "price" DOUBLE PRECISION NOT NULL,
     "localizedPrice" VARCHAR(255),
@@ -150,7 +153,7 @@ CREATE TABLE "Feed" (
 
 -- CreateTable
 CREATE TABLE "Tag" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "tag" VARCHAR(255) NOT NULL,
     "communityId" UUID,
     "feedId" UUID,
@@ -171,7 +174,7 @@ CREATE TABLE "Image" (
 
 -- CreateTable
 CREATE TABLE "Reply" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "messageType" "MessageType" NOT NULL DEFAULT E'text',
     "photoURL" VARCHAR(1024),
     "movieURL" VARCHAR(1024),
@@ -188,7 +191,7 @@ CREATE TABLE "Reply" (
 
 -- CreateTable
 CREATE TABLE "Reaction" (
-    "id" UUID NOT NULL,
+    "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "emoji" TEXT NOT NULL DEFAULT E'😀',
     "feedId" UUID,
     "replyId" UUID,
