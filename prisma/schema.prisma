@@ -42,6 +42,8 @@ model Community {
   description String
   currency    String   @db.VarChar(4)
   color       String?  @default("#28DB98")
+  thumbURL    String?  @db.VarChar(1024)
+  ImageURL    String?  @db.VarChar(1024)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @default(now())
@@ -174,6 +176,7 @@ model Feed {
   id             String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   isPublic       Boolean   @default(true)
   title          String    @db.VarChar(255)
+  content        String
   date           DateTime?
   price          Float
   localizedPrice String?   @db.VarChar(255)
