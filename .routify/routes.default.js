@@ -75,20 +75,6 @@ export default {
     },
     {
       "meta": {},
-      "id": "_default_communities_svelte",
-      "name": "communities",
-      "module": () => import('../src/routes/communities.svelte'),
-      "file": {
-        "path": "src/routes/communities.svelte",
-        "dir": "src/routes",
-        "base": "communities.svelte",
-        "ext": ".svelte",
-        "name": "communities"
-      },
-      "children": []
-    },
-    {
-      "meta": {},
       "id": "_default_community",
       "name": "community",
       "module": false,
@@ -338,6 +324,20 @@ export default {
             "base": "create.svelte",
             "ext": ".svelte",
             "name": "create"
+          },
+          "children": []
+        },
+        {
+          "meta": {},
+          "id": "_default_community_index_svelte",
+          "name": "index",
+          "module": () => import('../src/routes/community/index.svelte'),
+          "file": {
+            "path": "src/routes/community/index.svelte",
+            "dir": "src/routes/community",
+            "base": "index.svelte",
+            "ext": ".svelte",
+            "name": "index"
           },
           "children": []
         }

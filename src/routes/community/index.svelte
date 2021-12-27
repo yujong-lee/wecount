@@ -14,11 +14,11 @@
 </style>
 
 <script lang="ts">
-  import type {definitions} from '../types/supabase';
+  import type {definitions} from '../../types/supabase';
   import {_} from 'svelte-i18n';
   import InfiniteLoading from 'svelte-infinite-loading';
-  import {getCommunities} from '../services/communityService';
-  import CommunityItem from '../layouts/community-item.svelte';
+  import {getCommunities} from '../../services/communityService';
+  import CommunityItem from '../../layouts/community-item.svelte';
 
   let communities: definitions['Community'][] = [];
   let newBatch: definitions['Community'][] = [];

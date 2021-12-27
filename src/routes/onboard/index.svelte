@@ -53,7 +53,7 @@
       title: $_('onboard.see_communities'),
       body: $_('onboard.see_communities_desc'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      onPress: () => $goto($url('/communities')),
+      onPress: () => $goto($url('/community')),
     },
   ];
 </script>
