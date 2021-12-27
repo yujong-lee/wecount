@@ -33,6 +33,7 @@
   import {goto, url} from '@roxi/routify';
 
   import {_} from 'svelte-i18n';
+  import {user} from '../../stores/sessionStore';
   import {SvgGreenPlusCircle, SvgEntering} from '../../utils/icons';
   import Card from './card.svelte';
 
@@ -65,15 +66,19 @@
   </div>
   <div class="card-wrapper">
     {#each menus as { title, body, onPress }, i}
-      <Card title={title} body={body} on:click={onPress}>
-        <svelte:fragment slot="icon">
-          {#if i === 0}
-            <img src={SvgGreenPlusCircle} alt="logo" />
-          {:else}
-            <img src={SvgEntering} alt="logo" />
-          {/if}
-        </svelte:fragment>
-      </Card>
+      {#if !$user && i === 0}
+        <div />
+      {:else}
+        <Card title={title} body={body} on:click={onPress}>
+          <svelte:fragment slot="icon">
+            {#if i === 0}
+              <img src={SvgGreenPlusCircle} alt="logo" />
+            {:else}
+              <img src={SvgEntering} alt="logo" />
+            {/if}
+          </svelte:fragment>
+        </Card>
+      {/if}
     {/each}
   </div>
 </div>

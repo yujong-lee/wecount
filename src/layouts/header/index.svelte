@@ -39,7 +39,7 @@
 
 <nav>
   <div class="layout">
-    <img src={SvgLogo} alt="logo" />
+    <a href="/"><img src={SvgLogo} alt="logo" /></a>
     <div class="nav-menu">
       {#if $user}
         <MainHeader />

@@ -19,10 +19,14 @@
       }
       div {
         width: 100%;
+
         label {
+          left: 0;
+          text-align: left;
           width: 100%;
           margin-bottom: 3px;
         }
+
         input {
           width: 100%;
         }
@@ -36,15 +40,19 @@
         margin: 40px auto;
         overflow: hidden;
         background-color: rgba(0, 0, 0, 0.8);
+
         .profile-image {
           position: absolute;
           width: 100%;
           height: 100%;
           background-size: 100% 100%;
+          left: 0;
         }
+
         input[type='file'] {
           position: absolute;
-          bottom: 0;
+          bottom: -4px;
+          left: 0;
           outline: none;
           color: transparent;
           width: 100%;
@@ -54,12 +62,15 @@
           transition: 0.5s;
           background: black;
           opacity: 0.5;
+
           &:hover {
             opacity: 1;
           }
+
           &::-webkit-file-upload-button {
             visibility: hidden;
           }
+
           &::before {
             font-family: Material Icons;
             content: 'photo_camera';
@@ -78,6 +89,7 @@
         color: white;
         font-size: 16px;
       }
+
       .btn-signout {
         background-color: var(--negative);
         width: 100%;
@@ -126,6 +138,7 @@
       loading = false;
     }
   }
+
   const onFileSelected = async (e: any): Promise<void> => {
     try {
       let image = e.target.files?.[0];
@@ -236,8 +249,6 @@
         on:click={signOut}
         negative
         style="margin-top: 12px; width: 100%;"
-        disabled={loading}
-        loading={loading}
       >
         <div class="text" style="color: white;">
           {$_('sign_out')}

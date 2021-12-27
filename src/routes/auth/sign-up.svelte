@@ -19,6 +19,11 @@
       var(--auth-background-light) 21.32%,
       var(--auth-background-dark) 96.51%
     );
+
+    @media (--mobile) {
+      background: var(--background);
+    }
+
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     display: flex;
@@ -47,13 +52,14 @@
         'btn-sign btn-sign btn-sign'
         ' . . . ';
       justify-content: stretch;
+
       @media (--mobile) {
         max-height: none;
         border-radius: 0;
         padding: 80px 24px;
         flex: 1;
-        align-self: stretch;
       }
+
       .header {
         grid-area: header;
         margin-bottom: 50px;
@@ -61,9 +67,11 @@
         justify-content: center;
         align-items: center;
       }
+
       .input {
         grid-area: input;
       }
+
       .input-container {
         display: flex;
         flex-direction: row;
@@ -119,9 +127,10 @@
   import {_} from 'svelte-i18n';
   import EditText from '../../layouts/edit-text.svelte';
   import {SvgCheck} from '../../utils/icons';
-  import {onMount} from 'svelte';
-  import {user} from '../../stores/sessionStore';
   import Button from '../../layouts/button.svelte';
+  import {user} from '../../stores/sessionStore';
+  import {goto} from '@roxi/routify';
+  import {onMount} from 'svelte';
 
   let loading = false;
   let checked = false;
@@ -129,11 +138,11 @@
   let password: string;
   let passwordConfirm: string;
 
-  // onMount(async () => {
-  //   if ($user) {
-  //     await replace('/');
-  //   }
-  // });
+  onMount(() => {
+    if ($user) {
+      $goto('/');
+    }
+  });
 
   const onChangeEmail = (e: CustomEvent) => {
     email = e.detail;
@@ -241,10 +250,11 @@
         primary
         class="btn-sign-up"
         type="submit"
+        loading={loading}
         disabled={loading}
       >
         <div class="text">
-          {loading ? $_('loading') : $_('auth.sign-up.title')}
+          {$_('auth.sign-up.title')}
         </div>
       </Button>
     </div>
