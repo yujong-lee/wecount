@@ -83,12 +83,15 @@ export const deleteCommunity = async (
   }
 };
 
-export const getCommunities = async (): Promise<definitions['Community'][] | null> => {
+export const getCommunities = async (cursor?: string, limit?: number): Promise<definitions['Community'][] | null> => {
   try {
     const {data, error} = await supabase
       .from<definitions['Community']>('Community')
       .select()
-      .match({isPublic: true});
+      .match({isPublic: true})
+      .lt('createdAt', cursor || new Date().toISOString())
+      .order('createdAt', {ascending: false})
+      .limit(limit || 10);
 
     if (error) {throw error;}
 

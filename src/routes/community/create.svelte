@@ -63,7 +63,7 @@
   import {user} from '../../stores/sessionStore';
   import {createCommunity} from '../../services/communityService';
   import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../theme';
-  import {goto, url} from '@roxi/routify';
+  import {goto} from '@roxi/routify';
 
   let loading = false;
   const item = {
@@ -115,7 +115,7 @@
       });
 
       if (community?.id) {
-        $goto($url('/community/[id]', {id: community.id}));
+        $goto('/community/[id]', {id: community.id});
       }
     } finally {
       isSubmitOnFlight = false;
@@ -194,7 +194,6 @@
     </div>
     <div class="input-wrapper">
       <Button
-        on:click={() => {}}
         primary
         style={'width: 292px;'}
         type="submit"

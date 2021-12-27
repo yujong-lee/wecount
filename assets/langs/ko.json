@@ -69,7 +69,8 @@
       "dashboard": "대시보드",
       "feeds": "피드",
       "settings": "설정"
-    }
+    },
+    "no_more": "더이상 커뮤니티가 없습니다!"
   },
   "Community": {},
   "header": {

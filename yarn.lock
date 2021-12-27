@@ -8783,6 +8783,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"svelte-infinite-loading@npm:^1.3.8":
+  version: 1.3.8
+  resolution: "svelte-infinite-loading@npm:1.3.8"
+  checksum: e27a09e41db33835375ad09b02838f34a7ba612bbc1628589f4eb70299f922b5cbfd71d529e14ad38ca72bd6a88f126aca5d791e949f6ab90abd05e58c5621fb
+  languageName: node
+  linkType: hard
+
 "svelte-jester@npm:^2.1.5":
   version: 2.1.5
   resolution: "svelte-jester@npm:2.1.5"
@@ -8877,6 +8884,7 @@ __metadata:
     svelte: ^3.44.3
     svelte-check: ^2.2.11
     svelte-i18n: ^3.3.13
+    svelte-infinite-loading: ^1.3.8
     svelte-jester: ^2.1.5
     svelte-preprocess: ^4.10.1
     svelte-theme: ^1.4.3

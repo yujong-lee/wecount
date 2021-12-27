@@ -67,7 +67,8 @@
       "dashboard": "Dashboard",
       "feeds": "Feeds",
       "settings": "Settings"
-    }
+    },
+    "no_more": "No more community!"
   },
   "header": {
     "explore_community": "Explore the community!"
