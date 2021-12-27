@@ -120,7 +120,7 @@
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  const handleAdd = () => $goto($url('/community-create'));
+  const handleAdd = () => $goto($url('/community/create'));
 
   const postTransition = () => {
     menuElement.addEventListener('transitionend', () => {

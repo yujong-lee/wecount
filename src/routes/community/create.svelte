@@ -55,14 +55,14 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
-  import Button from '../layouts/button.svelte';
-  import Select from '../layouts/select.svelte';
-  import Asterisk from '../layouts/asterisk.svelte';
-  import Carousel from '../layouts/carousel.svelte';
-  import InputBox from '../layouts/input-box.svelte';
-  import {user} from '../stores/sessionStore';
-  import {createCommunity} from '../services/communityService';
-  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../theme';
+  import Button from '../../layouts/button.svelte';
+  import Select from '../../layouts/select.svelte';
+  import Asterisk from '../../layouts/asterisk.svelte';
+  import Carousel from '../../layouts/carousel.svelte';
+  import InputBox from '../../layouts/input-box.svelte';
+  import {user} from '../../stores/sessionStore';
+  import {createCommunity} from '../../services/communityService';
+  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../theme';
   import {goto, url} from '@roxi/routify';
 
   let loading = false;

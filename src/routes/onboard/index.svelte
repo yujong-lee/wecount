@@ -47,7 +47,7 @@
       title: $_('onboard.create_community'),
       body: $_('onboard.create_community_desc'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      onPress: (): void => $goto($url('/community-create')),
+      onPress: (): void => $goto($url('/community/create')),
     },
     {
       title: $_('onboard.see_communities'),
